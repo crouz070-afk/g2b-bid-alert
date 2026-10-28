@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """카카오 리프레시 토큰 받기 — 브라우저에서 '동의하기' 한 번만 누르면 끝.
 
-실행:  python setup/1_카카오토큰받기.py
+실행:  python setup/1_kakao_token.py
 
 하는 일:
   1. 카카오 REST API 키를 물어본다(한 번만).

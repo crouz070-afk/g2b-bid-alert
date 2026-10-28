@@ -2,9 +2,9 @@
 #
 # 실행:  PowerShell에서
 #   cd "$env:USERPROFILE\OneDrive\바탕 화면\작업결과물\g2b-bid-alert"
-#   powershell -ExecutionPolicy Bypass -File setup\2_깃허브설정.ps1
+#   powershell -ExecutionPolicy Bypass -File setup\2_github_setup.ps1
 #
-# 먼저 setup\1_카카오토큰받기.py 로 setup\.env 를 만들어 둔다.
+# 먼저 setup\1_kakao_token.py 로 setup\.env 를 만들어 둔다.
 # 사람이 할 일은 GitHub 로그인 창에서 코드 붙여넣기 한 번뿐이다.
 
 $ErrorActionPreference = "Stop"
@@ -26,7 +26,7 @@ $USER = (gh api user --jq .login)
 $PAGES = "https://$USER.github.io/$REPO/"
 
 # ---------- 3. 기존 로컬 상태 이관 + 페이지 주소 기록 ----------
-python -X utf8 setup\0_로컬상태가져오기.py
+python -X utf8 setup\0_import_local_state.py
 python -X utf8 -c "import json;p='config.json';c=json.load(open(p,encoding='utf-8'));c['pages_url']='$PAGES';json.dump(c,open(p,'w',encoding='utf-8',newline='\n'),ensure_ascii=False,indent=2)"
 git add -A
 git commit -q -m "로컬 이력·상태 이관, 페이지 주소 설정"

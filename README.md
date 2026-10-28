@@ -45,8 +45,8 @@ PC 전원과 무관하게 GitHub 서버에서 돌고, Claude를 거치지 않아
    - 카카오 로그인 ON, Redirect URI `http://localhost:5000/oauth`
    - 동의항목 `카카오톡 메시지 전송(talk_message)` 선택 동의
    - 플랫폼 > Web 사이트 도메인: `https://<깃허브ID>.github.io`, `https://www.g2b.go.kr`
-2. `python setup/1_카카오토큰받기.py` → 브라우저 동의 → `setup/.env` 생성(깃에 안 올라감), 테스트 카톡 수신 확인
-3. `powershell -ExecutionPolicy Bypass -File setup\2_깃허브설정.ps1` → 로컬 상태 이관, 공개 리포 생성, 시크릿·Pages 설정, 첫 실행
+2. `python setup/1_kakao_token.py` → 브라우저 동의 → `setup/.env` 생성(깃에 안 올라감), 테스트 카톡 수신 확인
+3. `powershell -ExecutionPolicy Bypass -File setup\2_github_setup.ps1` → 로컬 상태 이관, 공개 리포 생성, 시크릿·Pages 설정, 첫 실행
 4. 정상 동작을 확인하면 Claude 예약작업 `g2b-bid-scan`을 끈다(중복 알림 방지).
 
 시크릿: `G2B_SERVICE_KEY`, `KAKAO_REST_KEY`, `KAKAO_REFRESH_TOKEN`, `KAKAO_TOKEN_KEY`(갱신 토큰 암호화 키), `KAKAO_CLIENT_SECRET`(앱에서 켠 경우만).
@@ -68,5 +68,5 @@ python kakao_notify.py "테스트"                # 카카오 연결만 확인(K
 
 ## 알아둘 것
 
-- 카카오 리프레시 토큰이 끊기면(장기 미사용 등) `1_카카오토큰받기.py`를 다시 돌려 `KAKAO_REFRESH_TOKEN` 시크릿만 바꾸면 된다.
+- 카카오 리프레시 토큰이 끊기면(장기 미사용 등) `1_kakao_token.py`를 다시 돌려 `KAKAO_REFRESH_TOKEN` 시크릿만 바꾸면 된다.
 - 공개 리포지토리라 60일 무활동 시 예약 실행이 멈출 수 있으나, 매시 상태를 커밋하므로 해당 없음.

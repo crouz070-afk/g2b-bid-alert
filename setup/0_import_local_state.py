@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """기존 로컬 알림(나라장터_공고알림 폴더)의 이력·상태를 이 리포지토리로 옮긴다.
 
-실행:  python setup/0_로컬상태가져오기.py
+실행:  python setup/0_import_local_state.py
 
 - 공고이력.csv -> history.csv, notices.json(진행 중 공고 DB)
 - state.json의 last_run·seen -> state.json (이미 알린 공고를 다시 알리지 않게)
