@@ -1,182 +1,168 @@
 # -*- coding: utf-8 -*-
-"""last_hits.json -> docs/index.html (GitHub Pages 공개용)"""
-import json, os, re, html
-from datetime import datetime, timedelta, timezone
+"""진행 중 공고 전체 -> docs/index.html (GitHub Pages 공개용)
+
+g2b_scan.py가 매 실행 끝에 render()를 부른다. 데이터는 페이지에 JSON으로 박아 넣고,
+D-day·신규 표시는 브라우저가 여는 시각 기준으로 계산한다(갱신이 늦어도 날짜가 틀리지 않게).
+"""
+import json, os, re
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(DIR, "docs", "index.html")
-KST = timezone(timedelta(hours=9))
 
 
-def load(name, default):
-    p = os.path.join(DIR, name)
-    return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else default
-
-
-def dt(s):
-    m = re.match(r"(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})", s or "")
-    return datetime(*map(int, m.groups())) if m else None
-
-
-def fmt(s):
-    d = dt(s)
-    if not d:
-        return "—"
-    return "%d.%d(%s) %02d:%02d" % (d.month, d.day, "월화수목금토일"[d.weekday()], d.hour, d.minute)
-
-
-def won(v):
+def _won(v):
     try:
         n = int(float(v))
     except Exception:
         return ""
+    if n <= 0:
+        return ""
     if n >= 100000000:
         return "%.1f억" % (n / 100000000)
     if n >= 10000:
-        return "%d만" % (n // 10000)
-    return "{:,}".format(n)
+        return "{:,}만".format(n // 10000)
+    return "{:,}원".format(n)
 
 
-E = html.escape
+def _iso(s):
+    m = re.match(r"(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2})", s or "")
+    return "%sT%s" % m.groups() if m else ""
 
 
-def render():
-    hits = load("last_hits.json", [])
-    meta = load("last_meta.json", {})
-    now  = datetime.now(KST).replace(tzinfo=None)
-    gen  = meta.get("generated") or now.isoformat(timespec="minutes")
-    win  = meta.get("window") or []
-
+def render(active, now, scanned=None, window=None):
+    from g2b_scan import due_of
     rows = []
-    for h in hits:
-        cls = dt(h.get("입찰마감", ""))
-        dday, urg = "", ""
-        if cls:
-            n = (cls.date() - now.date()).days
-            dday = "마감" if n < 0 else ("오늘 마감" if n == 0 else "D-%d" % n)
-            urg  = "urgent" if n <= 3 else ""
-        lic = [x.split("/")[0] for x in (h.get("면허") or [])]
-        chips = "".join('<span class="chip">%s</span>' % E(x) for x in lic[:2])
-        budget = won(h.get("예산", ""))
-        url = h.get("URL") or ""
-        rows.append("""
-      <li class="row">
-        <a class="rowlink" href="%s" target="_blank" rel="noopener">
-          <span class="nm">%s</span>
-          <span class="inst">%s</span>
-          <span class="start"><span class="lbl">입찰시작</span>%s</span>
-        </a>
-        <div class="meta">
-          <span class="dday %s">%s</span>
-          <span class="mut">마감 %s</span>
-          %s
-          %s
-        </div>
-      </li>""" % (
-            E(url), E(h.get("공고명", "")), E(h.get("공고기관", "")),
-            E(fmt(h.get("입찰시작", ""))), urg, E(dday), E(fmt(h.get("입찰마감", ""))),
-            ('<span class="mut">예산 %s</span>' % E(budget)) if budget else "",
-            chips))
-
-    body = "\n".join(rows) if rows else """
-      <li class="empty"><p>새로 올라온 공고가 없습니다.</p>
-      <p class="mut">다음 스캔은 오전 8시 또는 오후 6시입니다.</p></li>"""
-
-    sub = "%s 기준 · %d건" % (gen.replace("T", " ")[:16], len(hits))
-    if len(win) == 2:
-        f = lambda s: "%s.%s %s:%s" % (s[4:6], s[6:8], s[8:10], s[10:12])
-        sub += " · 조회 %s ~ %s" % (f(win[0]), f(win[1]))
-
+    for n in active:
+        rows.append({"t": n["title"], "o": n["org"], "d": n["dem"] if n["dem"] != n["org"] else "",
+                     "b": n["biz"], "due": due_of(n).strftime("%Y-%m-%dT%H:%M"),
+                     "dk": "마감" if n.get("close") else ("개찰" if n.get("open") else "기한"),
+                     "m": n["method"], "w": _won(n["budget"]),
+                     "k": n["kw"], "l": [x.split("/")[0] for x in n["lic"]],
+                     "u": n["url"], "f": _iso(n["found"]), "c": _iso(n.get("changed", "")),
+                     "no": n["no"]})
+    data = {"gen": now.strftime("%Y-%m-%dT%H:%M"), "rows": rows}
+    page = TEMPLATE.replace("{{DATA}}", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    open(OUT, "w", encoding="utf-8").write(
-        TPL.replace("{{SUB}}", E(sub)).replace("{{ROWS}}", body))
+    open(OUT, "w", encoding="utf-8").write(page)
     return OUT
 
 
-TPL = """<!doctype html>
+TEMPLATE = r"""<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>나라장터 회계용역 공고</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@600;700&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>나라장터 진행 중 공고</title>
 <style>
-:root{
-  --ground:#FBFAF8; --surface:#FFFFFF; --ink:#16202B; --muted:#66727F;
-  --accent:#0B4F8A; --signal:#B4471F; --line:#E4E3DE; --chip:#EDF2F8;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --ground:#12161A; --surface:#1A1F25; --ink:#E8EAED; --muted:#93A0AD;
-    --accent:#7FB3E0; --signal:#E5946B; --line:#2A3138; --chip:#232B33;
-  }
-}
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1b1f24;--sub:#5d6670;--line:#e3e6ea;--accent:#2457c5;
+--new:#d9480f;--newbg:#fff1e8;--hot:#c92a2a;--hotbg:#fff0f0;--chip:#eef1f5;--chg:#7048e8;--chgbg:#f3f0ff}
+@media (prefers-color-scheme:dark){:root{--bg:#111418;--card:#1a1e24;--ink:#e8eaed;--sub:#9aa3ad;--line:#2b3138;
+--accent:#7aa2ff;--new:#ff9a5c;--newbg:#3a2418;--hot:#ff7b7b;--hotbg:#3a1c1c;--chip:#262c33;--chg:#b197fc;--chgbg:#2a2440}}
 *{box-sizing:border-box}
-body{
-  margin:0; background:var(--ground); color:var(--ink);
-  font-family:"IBM Plex Sans KR",-apple-system,"Malgun Gothic",sans-serif;
-  font-size:15px; line-height:1.5; -webkit-text-size-adjust:100%;
-}
-.wrap{max-width:960px; margin:0 auto; padding:28px 18px 56px}
-header{border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:4px}
-h1{
-  font-family:"Noto Serif KR",serif; font-weight:700; font-size:clamp(21px,4.6vw,29px);
-  margin:0 0 6px; letter-spacing:-.01em; text-wrap:balance;
-}
-.sub{color:var(--muted); font-size:13px; font-variant-numeric:tabular-nums}
-ul{list-style:none; margin:0; padding:0}
-.row{border-bottom:1px solid var(--line); padding:15px 2px}
-.rowlink{
-  display:grid; gap:3px 16px; text-decoration:none; color:inherit;
-  grid-template-columns:1fr; align-items:baseline;
-}
-.nm{font-weight:600; font-size:16px; line-height:1.4; text-wrap:pretty}
-.rowlink:hover .nm, .rowlink:focus-visible .nm{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
-.rowlink:focus-visible{outline:2px solid var(--accent); outline-offset:4px; border-radius:3px}
-.inst{color:var(--muted); font-size:13.5px}
-.start{color:var(--accent); font-weight:500; font-size:13.5px; font-variant-numeric:tabular-nums}
-.lbl{color:var(--muted); font-weight:400; font-size:11px; letter-spacing:.06em; margin-right:6px}
-.meta{display:flex; flex-wrap:wrap; gap:6px 12px; margin-top:8px; font-size:12px; align-items:center}
-.mut{color:var(--muted); font-variant-numeric:tabular-nums}
-.dday{
-  font-weight:600; font-size:11px; letter-spacing:.04em; color:var(--muted);
-  border:1px solid var(--line); border-radius:2px; padding:2px 7px;
-}
-.dday.urgent{color:var(--signal); border-color:var(--signal)}
-.chip{
-  background:var(--chip); color:var(--accent); font-size:11px; font-weight:500;
-  padding:2px 8px; border-radius:2px;
-}
-.empty{padding:52px 8px; text-align:center; color:var(--ink)}
-.empty p{margin:0 0 6px}
-footer{margin-top:26px; color:var(--muted); font-size:12px; line-height:1.7}
-@media (min-width:720px){
-  .rowlink{grid-template-columns:1fr 210px 150px; gap:0 20px}
-  .inst,.start{text-align:left; font-size:13px}
-  .lbl{display:none}
-  .row{padding:13px 2px}
-}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;-webkit-text-size-adjust:100%;word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:4px 0 2px}
+.meta{color:var(--sub);font-size:13px}
+.stats{display:flex;gap:8px;margin:14px 0 10px;flex-wrap:wrap}
+.stat{flex:1 1 0;min-width:96px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;text-align:left;color:inherit;font:inherit}
+.stat b{display:block;font-size:20px}
+.stat span{color:var(--sub);font-size:12px}
+.stat.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+input[type=search]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;margin-bottom:6px}
+.day{margin:18px 0 6px;font-size:13px;font-weight:700;color:var(--sub)}
+.day.hot{color:var(--hot)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0}
+.card a.t{color:var(--ink);text-decoration:none;font-weight:600;font-size:15.5px}
+.card a.t:hover{color:var(--accent);text-decoration:underline}
+.row{display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--sub);font-size:13px;margin-top:4px}
+.badges{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px}
+.bd{font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--chip);color:var(--sub)}
+.bd.new{background:var(--newbg);color:var(--new)}
+.bd.hot{background:var(--hotbg);color:var(--hot)}
+.bd.chg{background:var(--chgbg);color:var(--chg)}
+.due{font-weight:700;color:var(--ink)}
+.due.hot{color:var(--hot)}
+.empty{color:var(--sub);text-align:center;padding:40px 0}
+footer{color:var(--sub);font-size:12px;margin:24px 0 8px;line-height:1.6}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <h1>나라장터 회계용역 공고</h1>
-    <div class="sub">{{SUB}}</div>
-  </header>
-  <ul>{{ROWS}}</ul>
-  <footer>
-    공고명을 누르면 나라장터 공고문으로 이동합니다.<br>
-    검색조건 — 공고명 키워드(회계·감사·세무·재무·원가·운송원가·경영진단·가치평가·자문) 또는 참가면허(회계법인·공인회계사사무소·세무법인·원가검토기관).<br>
-    매일 08:00 · 18:00(KST) GitHub Actions 자동 실행. 누적 이력은 리포지토리의 history.csv에 있습니다.
-  </footer>
+  <h1>나라장터 진행 중 공고</h1>
+  <div class="meta" id="meta"></div>
+  <div class="stats">
+    <button class="stat on" data-f="all"><b id="c-all">0</b><span>진행 중 전체</span></button>
+    <button class="stat" data-f="new"><b id="c-new">0</b><span>신규 (24시간)</span></button>
+    <button class="stat" data-f="hot"><b id="c-hot">0</b><span>3일 내 마감</span></button>
+  </div>
+  <input type="search" id="q" placeholder="공고명·기관 검색">
+  <div id="list"></div>
+  <footer>회계·감사·세무·재무·원가·경영진단·가치평가·자문 키워드 또는 회계법인·공인회계사·세무법인·원가검토기관 면허제한 공고.
+  마감이 지나거나 취소된 공고는 자동으로 빠집니다. 공고명을 누르면 나라장터 공고로 이동합니다.</footer>
 </div>
+<script>
+const D = {{DATA}};
+const WD = "일월화수목금토";
+const now = new Date();
+const P = s => s ? new Date(s + ":00+09:00") : null;
+const gen = P(D.gen);
+const kst = d => new Date(d.getTime() + 9 * 3600e3);          // KST 달력 계산용
+const dayKey = d => kst(d).toISOString().slice(0, 10);
+const md = d => { const k = kst(d); return (k.getUTCMonth()+1) + "/" + k.getUTCDate() + "(" + WD[k.getUTCDay()] + ")"; };
+const hm = d => kst(d).toISOString().slice(11, 16);
+const dd = d => Math.round((Date.parse(dayKey(d)) - Date.parse(dayKey(now))) / 864e5);
+const esc = s => String(s || "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const rows = D.rows.map(r => Object.assign(r, {due_: P(r.due), f_: P(r.f), c_: P(r.c)}))
+  .filter(r => r.due_ >= now)
+  .sort((a, b) => a.due_ - b.due_);
+rows.forEach(r => {
+  r.isNew = r.f_ && (now - r.f_) < 24 * 3600e3;
+  r.isHot = dd(r.due_) <= 3;
+  r.isChg = r.c_ && (now - r.c_) < 3 * 24 * 3600e3;
+});
+
+document.getElementById("meta").textContent =
+  "갱신 " + md(gen) + " " + hm(gen) + " · 매시 자동 갱신";
+document.getElementById("c-all").textContent = rows.length;
+document.getElementById("c-new").textContent = rows.filter(r => r.isNew).length;
+document.getElementById("c-hot").textContent = rows.filter(r => r.isHot).length;
+
+let filt = "all";
+function draw() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const xs = rows.filter(r => (filt === "all" || (filt === "new" && r.isNew) || (filt === "hot" && r.isHot))
+    && (!q || (r.t + " " + r.o + " " + r.d).toLowerCase().includes(q)));
+  let html = "", last = "";
+  for (const r of xs) {
+    const k = dayKey(r.due_), n = dd(r.due_);
+    if (k !== last) {
+      const lab = n === 0 ? "오늘" : n === 1 ? "내일" : "D-" + n;
+      html += '<div class="day' + (n <= 1 ? " hot" : "") + '">' + md(r.due_) + " · " + lab + "</div>";
+      last = k;
+    }
+    const b = [];
+    if (r.isNew) b.push('<span class="bd new">NEW</span>');
+    if (r.isChg) b.push('<span class="bd chg">정정</span>');
+    b.push('<span class="bd">' + esc(r.b) + "</span>");
+    r.l.forEach(x => b.push('<span class="bd">' + esc(x) + "</span>"));
+    if (!r.l.length) r.k.forEach(x => b.push('<span class="bd">' + esc(x) + "</span>"));
+    html += '<div class="card"><div class="badges">' + b.join("") + "</div>"
+      + '<a class="t" href="' + esc(r.u) + '" target="_blank" rel="noopener">' + esc(r.t) + "</a>"
+      + '<div class="row"><span class="due' + (n <= 1 ? " hot" : "") + '">' + r.dk + " " + md(r.due_) + " " + hm(r.due_) + "</span>"
+      + (r.w ? "<span>" + r.w + "</span>" : "") + (r.m ? "<span>" + esc(r.m) + "</span>" : "") + "</div>"
+      + '<div class="row"><span>' + esc(r.o) + (r.d ? " → " + esc(r.d) : "") + "</span></div></div>";
+  }
+  document.getElementById("list").innerHTML = html || '<div class="empty">해당 공고가 없습니다.</div>';
+}
+document.querySelectorAll(".stat").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".stat").forEach(x => x.classList.remove("on"));
+  b.classList.add("on"); filt = b.dataset.f; draw();
+});
+document.getElementById("q").oninput = draw;
+draw();
+</script>
 </body>
 </html>
 """
-
-if __name__ == "__main__":
-    print(render())

@@ -2,13 +2,15 @@ name: g2b-bid-scan
 
 on:
   schedule:
-    # GitHub Actions의 cron은 UTC. KST = UTC+9.
-    - cron: "0 23 * * *"   # 08:00 KST
-    - cron: "0 9 * * *"    # 18:00 KST
+    # 매시 7분. 정각(:00)은 GitHub 혼잡으로 지연·누락이 잦아 피한다.
+    # 실행이 빠져도 다음 실행이 직전 실행시각부터 되짚으므로 공고는 누락되지 않는다.
+    - cron: "7 * * * *"
   workflow_dispatch:        # 수동 실행 버튼
 
 permissions:
-  contents: write           # state.json / history.csv / docs 커밋용
+  contents: write           # state.json / notices.json / history.csv 커밋용
+  pages: write
+  id-token: write
 
 concurrency:
   group: g2b-scan
@@ -17,6 +19,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -25,19 +28,15 @@ jobs:
           python-version: "3.12"
 
       - name: 의존성 설치
-        run: |
-          python -m pip install --quiet --upgrade pip
-          python -m pip install --quiet pillow pynacl
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq fonts-nanum
+        run: python -m pip install --quiet pynacl
 
       - name: 스캔 및 알림
         env:
           G2B_SERVICE_KEY:     ${{ secrets.G2B_SERVICE_KEY }}
           KAKAO_REST_KEY:      ${{ secrets.KAKAO_REST_KEY }}
           KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
-          GH_PAT:              ${{ secrets.GH_PAT }}
-          GITHUB_REPOSITORY:   ${{ github.repository }}
+          KAKAO_TOKEN_KEY:     ${{ secrets.KAKAO_TOKEN_KEY }}
+          KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
           PYTHONIOENCODING:    utf-8
         run: python g2b_scan.py --notify
 
@@ -47,20 +46,28 @@ jobs:
           git config user.name  "g2b-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config core.quotepath false
-          git add -A state.json history.csv last_hits.json last_meta.json last_summary.txt docs
+          git add -A
           if git diff --cached --quiet; then
             echo "변경 없음"
           else
-            git commit -m "scan: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M KST')"
-            git pull --rebase --autostash
-            git push
+            git commit -q -m "scan: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M KST')"
+            git pull -q --rebase --autostash
+            git push -q
           fi
 
-      - name: 표 이미지 보관
+      - name: 페이지 업로드
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: notices-png
-          path: out/*
-          if-no-files-found: ignore
-          retention-days: 90
+          path: docs
+
+  deploy:
+    needs: scan
+    if: always()
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

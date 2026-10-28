@@ -2,95 +2,117 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>나라장터 회계용역 공고</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@600;700&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>나라장터 진행 중 공고</title>
 <style>
-:root{
-  --ground:#FBFAF8; --surface:#FFFFFF; --ink:#16202B; --muted:#66727F;
-  --accent:#0B4F8A; --signal:#B4471F; --line:#E4E3DE; --chip:#EDF2F8;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --ground:#12161A; --surface:#1A1F25; --ink:#E8EAED; --muted:#93A0AD;
-    --accent:#7FB3E0; --signal:#E5946B; --line:#2A3138; --chip:#232B33;
-  }
-}
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1b1f24;--sub:#5d6670;--line:#e3e6ea;--accent:#2457c5;
+--new:#d9480f;--newbg:#fff1e8;--hot:#c92a2a;--hotbg:#fff0f0;--chip:#eef1f5;--chg:#7048e8;--chgbg:#f3f0ff}
+@media (prefers-color-scheme:dark){:root{--bg:#111418;--card:#1a1e24;--ink:#e8eaed;--sub:#9aa3ad;--line:#2b3138;
+--accent:#7aa2ff;--new:#ff9a5c;--newbg:#3a2418;--hot:#ff7b7b;--hotbg:#3a1c1c;--chip:#262c33;--chg:#b197fc;--chgbg:#2a2440}}
 *{box-sizing:border-box}
-body{
-  margin:0; background:var(--ground); color:var(--ink);
-  font-family:"IBM Plex Sans KR",-apple-system,"Malgun Gothic",sans-serif;
-  font-size:15px; line-height:1.5; -webkit-text-size-adjust:100%;
-}
-.wrap{max-width:960px; margin:0 auto; padding:28px 18px 56px}
-header{border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:4px}
-h1{
-  font-family:"Noto Serif KR",serif; font-weight:700; font-size:clamp(21px,4.6vw,29px);
-  margin:0 0 6px; letter-spacing:-.01em; text-wrap:balance;
-}
-.sub{color:var(--muted); font-size:13px; font-variant-numeric:tabular-nums}
-ul{list-style:none; margin:0; padding:0}
-.row{border-bottom:1px solid var(--line); padding:15px 2px}
-.rowlink{
-  display:grid; gap:3px 16px; text-decoration:none; color:inherit;
-  grid-template-columns:1fr; align-items:baseline;
-}
-.nm{font-weight:600; font-size:16px; line-height:1.4; text-wrap:pretty}
-.rowlink:hover .nm, .rowlink:focus-visible .nm{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
-.rowlink:focus-visible{outline:2px solid var(--accent); outline-offset:4px; border-radius:3px}
-.inst{color:var(--muted); font-size:13.5px}
-.start{color:var(--accent); font-weight:500; font-size:13.5px; font-variant-numeric:tabular-nums}
-.lbl{color:var(--muted); font-weight:400; font-size:11px; letter-spacing:.06em; margin-right:6px}
-.meta{display:flex; flex-wrap:wrap; gap:6px 12px; margin-top:8px; font-size:12px; align-items:center}
-.mut{color:var(--muted); font-variant-numeric:tabular-nums}
-.dday{
-  font-weight:600; font-size:11px; letter-spacing:.04em; color:var(--muted);
-  border:1px solid var(--line); border-radius:2px; padding:2px 7px;
-}
-.dday.urgent{color:var(--signal); border-color:var(--signal)}
-.chip{
-  background:var(--chip); color:var(--accent); font-size:11px; font-weight:500;
-  padding:2px 8px; border-radius:2px;
-}
-.empty{padding:52px 8px; text-align:center; color:var(--ink)}
-.empty p{margin:0 0 6px}
-footer{margin-top:26px; color:var(--muted); font-size:12px; line-height:1.7}
-@media (min-width:720px){
-  .rowlink{grid-template-columns:1fr 210px 150px; gap:0 20px}
-  .inst,.start{text-align:left; font-size:13px}
-  .lbl{display:none}
-  .row{padding:13px 2px}
-}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;-webkit-text-size-adjust:100%;word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:4px 0 2px}
+.meta{color:var(--sub);font-size:13px}
+.stats{display:flex;gap:8px;margin:14px 0 10px;flex-wrap:wrap}
+.stat{flex:1 1 0;min-width:96px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;text-align:left;color:inherit;font:inherit}
+.stat b{display:block;font-size:20px}
+.stat span{color:var(--sub);font-size:12px}
+.stat.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+input[type=search]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;margin-bottom:6px}
+.day{margin:18px 0 6px;font-size:13px;font-weight:700;color:var(--sub)}
+.day.hot{color:var(--hot)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0}
+.card a.t{color:var(--ink);text-decoration:none;font-weight:600;font-size:15.5px}
+.card a.t:hover{color:var(--accent);text-decoration:underline}
+.row{display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--sub);font-size:13px;margin-top:4px}
+.badges{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px}
+.bd{font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--chip);color:var(--sub)}
+.bd.new{background:var(--newbg);color:var(--new)}
+.bd.hot{background:var(--hotbg);color:var(--hot)}
+.bd.chg{background:var(--chgbg);color:var(--chg)}
+.due{font-weight:700;color:var(--ink)}
+.due.hot{color:var(--hot)}
+.empty{color:var(--sub);text-align:center;padding:40px 0}
+footer{color:var(--sub);font-size:12px;margin:24px 0 8px;line-height:1.6}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <h1>나라장터 회계용역 공고</h1>
-    <div class="sub">2026-09-04 16:37 기준 · 1건 · 조회 09.04 13:37 ~ 09.04 16:37</div>
-  </header>
-  <ul>
-      <li class="row">
-        <a class="rowlink" href="https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01629182&amp;bidPbancOrd=001" target="_blank" rel="noopener">
-          <span class="nm">(정정공고)인천국제공항 지방세 절세방안 발굴 및 환급 용역</span>
-          <span class="inst">인천국제공항공사</span>
-          <span class="start"><span class="lbl">입찰시작</span>9.29(화) 16:00</span>
-        </a>
-        <div class="meta">
-          <span class="dday ">D-27</span>
-          <span class="mut">마감 10.1(목) 16:00</span>
-          <span class="mut">예산 5.0억</span>
-          <span class="chip">세무법인</span><span class="chip">회계법인</span>
-        </div>
-      </li></ul>
-  <footer>
-    공고명을 누르면 나라장터 공고문으로 이동합니다.<br>
-    검색조건 — 공고명 키워드(회계·감사·세무·재무·원가·운송원가·경영진단·가치평가·자문) 또는 참가면허(회계법인·공인회계사사무소·세무법인·원가검토기관).<br>
-    매일 08:00 · 18:00(KST) GitHub Actions 자동 실행. 누적 이력은 리포지토리의 history.csv에 있습니다.
-  </footer>
+  <h1>나라장터 진행 중 공고</h1>
+  <div class="meta" id="meta"></div>
+  <div class="stats">
+    <button class="stat on" data-f="all"><b id="c-all">0</b><span>진행 중 전체</span></button>
+    <button class="stat" data-f="new"><b id="c-new">0</b><span>신규 (24시간)</span></button>
+    <button class="stat" data-f="hot"><b id="c-hot">0</b><span>3일 내 마감</span></button>
+  </div>
+  <input type="search" id="q" placeholder="공고명·기관 검색">
+  <div id="list"></div>
+  <footer>회계·감사·세무·재무·원가·경영진단·가치평가·자문 키워드 또는 회계법인·공인회계사·세무법인·원가검토기관 면허제한 공고.
+  마감이 지나거나 취소된 공고는 자동으로 빠집니다. 공고명을 누르면 나라장터 공고로 이동합니다.</footer>
 </div>
+<script>
+const D = {"gen": "2026-10-28T20:30", "rows": [{"t": "읍면단위 3차 LPG배관망 구축사업 정산보고 회계검증용역", "o": "재단법인 한국엘피지사업관리원", "d": "", "b": "용역", "due": "2026-10-29T10:00", "dk": "마감", "m": "수의계약", "w": "4,514만", "k": ["회계"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01783914&bidPbancOrd=000", "f": "2026-10-21T18:22", "c": "", "no": "R26BK01783914"}, {"t": "2026년 마을단위 LPG배관망 구축사업 정산보고 회계검증용역", "o": "재단법인 한국엘피지사업관리원", "d": "", "b": "용역", "due": "2026-10-29T10:00", "dk": "마감", "m": "수의계약", "w": "2,700만", "k": ["회계"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01783843&bidPbancOrd=000", "f": "2026-10-21T18:22", "c": "", "no": "R26BK01783843"}, {"t": "부산도시철도 궤도시설 보수정비공사 원가산정 연구용역", "o": "부산교통공사", "d": "", "b": "용역", "due": "2026-10-29T10:00", "dk": "마감", "m": "수의계약", "w": "2,798만", "k": ["원가"], "l": ["원가계산용역기관(행안부 기준)"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01787528&bidPbancOrd=000", "f": "2026-10-24T09:31", "c": "", "no": "R26BK01787528"}, {"t": "2027년 배분사업 회계평가 수행업체 선정요청", "o": "사회복지법인 사회복지공동모금회", "d": "", "b": "용역", "due": "2026-10-29T12:00", "dk": "마감", "m": "일반경쟁", "w": "2.6억", "k": ["회계"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01762978&bidPbancOrd=000", "f": "2026-10-08T19:45", "c": "", "no": "R26BK01762978"}, {"t": "어촌뉴딜사업 준공대상지 회계검증 용역", "o": "한국어촌어항공단", "d": "", "b": "용역", "due": "2026-10-30T10:00", "dk": "마감", "m": "제한경쟁", "w": "1.0억", "k": ["회계"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01779018&bidPbancOrd=000", "f": "2026-10-19T20:09", "c": "", "no": "R26BK01779018"}, {"t": "2026회계연도 재무결산 및 2027회계연도 중간점검 지원 용역", "o": "기상청", "d": "", "b": "용역", "due": "2026-10-30T10:00", "dk": "마감", "m": "제한경쟁", "w": "2,500만", "k": ["회계", "재무"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01777087&bidPbancOrd=000", "f": "2026-10-19T20:09", "c": "", "no": "R26BK01777087"}, {"t": "2026년 평화통일자문회의 임실군협의회 해외통일공감견학 소액수의 견적제출 안내공고(입찰대행)", "o": "전북특별자치도 임실군", "d": "", "b": "용역", "due": "2026-10-30T10:00", "dk": "마감", "m": "수의계약", "w": "5,800만", "k": ["자문"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01792017&bidPbancOrd=000", "f": "2026-10-27T10:08", "c": "", "no": "R26BK01792017"}, {"t": "성남문화재단 그룹웨어 및 회계시스템 교체", "o": "재단법인 성남문화재단", "d": "", "b": "용역", "due": "2026-10-30T13:00", "dk": "개찰", "m": "제한경쟁", "w": "3.0억", "k": ["회계"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01769424&bidPbancOrd=000", "f": "2026-10-14T13:15", "c": "", "no": "R26BK01769424"}, {"t": "2026 회계연도 한미전략투자공사 회계감사 용역", "o": "한미전략투자공사", "d": "", "b": "용역", "due": "2026-10-30T15:00", "dk": "마감", "m": "제한경쟁", "w": "2.3억", "k": ["회계"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01777520&bidPbancOrd=000", "f": "2026-10-19T20:09", "c": "", "no": "R26BK01777520"}, {"t": "2027년 소득 관련 세무업무 일원화 수행 용역", "o": "한국생산기술연구원", "d": "", "b": "용역", "due": "2026-11-02T10:00", "dk": "마감", "m": "제한경쟁", "w": "1,935만", "k": ["세무"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01784456&bidPbancOrd=000", "f": "2026-10-21T18:22", "c": "", "no": "R26BK01784456"}, {"t": "IBK금융그룹 2027~2029 회계연도 외부감사인 선임", "o": "중소기업은행", "d": "", "b": "용역", "due": "2026-11-02T10:00", "dk": "개찰", "m": "제한경쟁", "w": "126.4억", "k": ["회계", "감사"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01783447&bidPbancOrd=000", "f": "2026-10-21T18:22", "c": "", "no": "R26BK01783447"}, {"t": "리스크관리, 공시제도, 현금흐름 검토를 위한 회계법인 선임 입찰공고", "o": "정보통신공제조합", "d": "", "b": "용역", "due": "2026-11-02T11:00", "dk": "마감", "m": "제한경쟁", "w": "9,000만", "k": ["회계"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01783726&bidPbancOrd=001", "f": "2026-10-21T18:22", "c": "", "no": "R26BK01783726"}, {"t": "(재공고)2025~2026년 공공건축물 그린리모델링 사업지원을 위한 정산서류 검토 및 정산보고서 검증 위탁용역", "o": "국토안전관리원", "d": "", "b": "용역", "due": "2026-11-02T12:00", "dk": "마감", "m": "제한경쟁", "w": "2.4억", "k": [], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01785712&bidPbancOrd=000", "f": "2026-10-22T18:11", "c": "", "no": "R26BK01785712"}, {"t": "2026회계연도 국가회계 재무결산 연구용역", "o": "조달청 대구지방조달청", "d": "과학기술정보통신부 우정사업본부 우정사업조달센터", "b": "용역", "due": "2026-11-03T10:00", "dk": "마감", "m": "제한경쟁", "w": "1.7억", "k": ["회계", "재무"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01777484&bidPbancOrd=000", "f": "2026-10-20T10:14", "c": "", "no": "R26BK01777484"}, {"t": "2027 회계연도 중진기금 성과평가 및 위험관리 용역", "o": "중소벤처기업진흥공단", "d": "", "b": "용역", "due": "2026-11-03T10:00", "dk": "마감", "m": "제한경쟁", "w": "5,100만", "k": ["회계"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01781206&bidPbancOrd=000", "f": "2026-10-21T09:39", "c": "", "no": "R26BK01781206"}, {"t": "[재공고]제13차 2027년도 송도ㆍ청라국제도시 조성원가 재산정 용역", "o": "인천광역시 경제자유구역청", "d": "", "b": "용역", "due": "2026-11-03T10:00", "dk": "마감", "m": "수의계약", "w": "3,669만", "k": ["원가"], "l": ["원가계산용역기관(행안부 기준)", "회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01791216&bidPbancOrd=000", "f": "2026-10-27T10:08", "c": "", "no": "R26BK01791216"}, {"t": "한국세무금융고 급식소 및 부대시설 신축 전기공사 감리용역", "o": "강원특별자치도교육청", "d": "", "b": "용역", "due": "2026-11-03T10:00", "dk": "마감", "m": "제한경쟁", "w": "2.1억", "k": ["세무"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01791825&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01791825"}, {"t": "2026 서울관광 통합마케팅 용역에 대한 사후원가계산 용역", "o": "재단법인 서울관광재단", "d": "", "b": "용역", "due": "2026-11-03T11:00", "dk": "마감", "m": "수의계약", "w": "4,500만", "k": ["원가"], "l": ["원가계산용역기관(행안부 기준)"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01794704&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01794704"}, {"t": "2026~2027회계연도 서울대학교 산학협력단 회계감사 용역", "o": "서울대학교산학협력단", "d": "", "b": "용역", "due": "2026-11-04T10:00", "dk": "마감", "m": "일반경쟁", "w": "1.3억", "k": ["회계"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01777746&bidPbancOrd=001", "f": "2026-10-19T20:09", "c": "", "no": "R26BK01777746"}, {"t": "2026~2027년 한국천문연구원 주요사업 및 자체연구개발사업 위탁 정산 용역", "o": "한국천문연구원", "d": "", "b": "용역", "due": "2026-11-04T10:00", "dk": "마감", "m": "제한경쟁", "w": "1.0억", "k": [], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01784949&bidPbancOrd=000", "f": "2026-10-22T08:43", "c": "", "no": "R26BK01784949"}, {"t": "(회계연도 개시 전)2027년 거제시 배수펌프장 등 관리대행 용역", "o": "경상남도 거제시", "d": "", "b": "용역", "due": "2026-11-04T10:00", "dk": "마감", "m": "제한경쟁", "w": "5.0억", "k": ["회계"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01793111&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01793111"}, {"t": "2026~2028 회계연도 용인도시공사 회계감사 용역", "o": "용인도시공사", "d": "", "b": "용역", "due": "2026-11-04T17:00", "dk": "마감", "m": "일반경쟁", "w": "1.4억", "k": ["회계"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01768857&bidPbancOrd=000", "f": "2026-10-14T13:15", "c": "", "no": "R26BK01768857"}, {"t": "2027~2029 회계연도 회계감사 및 세무조정 용역", "o": "코레일테크주식회사", "d": "", "b": "용역", "due": "2026-11-05T10:00", "dk": "마감", "m": "제한경쟁", "w": "1.4억", "k": ["회계", "감사", "세무"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01790275&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01790275"}, {"t": "선박해양플랜트연구소 기본사업 및 자체연구사업 연구비 위탁정산 용역(2026-2027년)", "o": "조달청 대전지방조달청", "d": "한국해양과학기술원 부설 선박해양플랜트연구소", "b": "용역", "due": "2026-11-06T10:00", "dk": "마감", "m": "제한경쟁", "w": "1.1억", "k": [], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01789387&bidPbancOrd=000", "f": "2026-10-27T10:08", "c": "", "no": "R26BK01789387"}, {"t": "2026년 블록체인 지원사업 등 회계정산", "o": "한국인터넷진흥원", "d": "", "b": "용역", "due": "2026-11-06T14:00", "dk": "개찰", "m": "제한경쟁", "w": "4,660만", "k": ["회계"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01781671&bidPbancOrd=000", "f": "2026-10-21T09:39", "c": "", "no": "R26BK01781671"}, {"t": "2026년도 InnoCORE 연구과제 회계정산 용역", "o": "한국과학기술원", "d": "", "b": "용역", "due": "2026-11-06T14:00", "dk": "개찰", "m": "제한경쟁", "w": "5,000만", "k": ["회계"], "l": ["공인회계사사무소", "회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01790083&bidPbancOrd=000", "f": "2026-10-27T10:08", "c": "", "no": "R26BK01790083"}, {"t": "(재공고)인천국제공항 지방세 절세방안 발굴 및 환급 용역", "o": "인천국제공항공사", "d": "", "b": "용역", "due": "2026-11-06T16:00", "dk": "마감", "m": "일반경쟁", "w": "5.0억", "k": [], "l": ["세무법인", "회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01787051&bidPbancOrd=000", "f": "2026-10-22T18:11", "c": "", "no": "R26BK01787051"}, {"t": "한국전기공사협회 부동산 매입자문 용역", "o": "한국전기공사협회", "d": "", "b": "용역", "due": "2026-11-06T16:00", "dk": "개찰", "m": "제한경쟁", "w": "", "k": ["자문"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01791842&bidPbancOrd=000", "f": "2026-10-27T10:08", "c": "", "no": "R26BK01791842"}, {"t": "한국뇌연구원 2026회계연도 회계교육(컨설팅) 및 결산 지원 용역", "o": "한국뇌연구원", "d": "", "b": "용역", "due": "2026-11-09T10:00", "dk": "마감", "m": "제한경쟁", "w": "5,500만", "k": ["회계"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01796846&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01796846"}, {"t": "외국인유학생 정주지원 전문가 상담자문체계 구축 용역", "o": "신라대학교 산학협력단", "d": "", "b": "용역", "due": "2026-11-09T14:00", "dk": "마감", "m": "일반경쟁", "w": "3,800만", "k": ["자문"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01791767&bidPbancOrd=000", "f": "2026-10-27T10:08", "c": "", "no": "R26BK01791767"}, {"t": "2026-2027회계연도 회계자문 및 결산지원용역", "o": "인천국제공항공사", "d": "", "b": "용역", "due": "2026-11-09T16:00", "dk": "마감", "m": "일반경쟁", "w": "1.4억", "k": ["회계", "자문"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01760488&bidPbancOrd=000", "f": "2026-10-08T14:29", "c": "", "no": "R26BK01760488"}, {"t": "국민연금기금 해외대체 모니터링 자문기관(Fund Administration) 선정", "o": "국민연금공단", "d": "", "b": "용역", "due": "2026-11-09T23:59", "dk": "개찰", "m": "제한경쟁", "w": "", "k": ["자문"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01797074&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01797074"}, {"t": "국민연금기금 해외대체 모니터링 자문기관(Database Service) 선정", "o": "국민연금공단", "d": "", "b": "용역", "due": "2026-11-09T23:59", "dk": "개찰", "m": "제한경쟁", "w": "", "k": ["자문"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01796998&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01796998"}, {"t": "부동산 가격자문 용역", "o": "중소벤처기업진흥공단", "d": "", "b": "용역", "due": "2026-11-10T10:00", "dk": "마감", "m": "일반경쟁", "w": "1.5억", "k": ["자문"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01794832&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01794832"}, {"t": "공기업하수도사업특별회계 재산관리시스템 유지관리 사업", "o": "서울특별시", "d": "", "b": "용역", "due": "2026-11-10T16:00", "dk": "마감", "m": "제한경쟁", "w": "4,464만", "k": ["회계"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01796806&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01796806"}, {"t": "2026~2027회계연도 서울대학교 산학협력단 결산 지원 용역", "o": "서울대학교산학협력단", "d": "", "b": "용역", "due": "2026-11-11T10:00", "dk": "마감", "m": "일반경쟁", "w": "1.3억", "k": ["회계"], "l": ["회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01790170&bidPbancOrd=001", "f": "2026-10-27T10:08", "c": "", "no": "R26BK01790170"}, {"t": "(회계연도 개시 전)2027년 거제시 공공하수처리시설 수질원격감시시스템(TMS) 유지관리대행 용역", "o": "경상남도 거제시", "d": "", "b": "용역", "due": "2026-11-17T10:00", "dk": "마감", "m": "제한경쟁", "w": "5.0억", "k": ["회계"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01793148&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01793148"}, {"t": "(장기계속) 2027-2028년 글로벌인재사업 회계 정산 검토 용역", "o": "한국국제협력단", "d": "", "b": "용역", "due": "2026-11-18T15:00", "dk": "마감", "m": "일반경쟁", "w": "3.2억", "k": ["회계"], "l": ["공인회계사사무소", "회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01753641&bidPbancOrd=000", "f": "2026-10-08T14:29", "c": "", "no": "R26BK01753641"}, {"t": "2027년 세무종합시스템 운영 및 유지관리", "o": "서울특별시", "d": "", "b": "용역", "due": "2026-11-24T16:00", "dk": "마감", "m": "제한경쟁", "w": "25.3억", "k": ["세무"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01757334&bidPbancOrd=000", "f": "2026-10-07T10:39", "c": "", "no": "R26BK01757334"}, {"t": "2027년도 세무 자문 및 신고 용역", "o": "부산항만공사", "d": "", "b": "용역", "due": "2026-11-30T15:00", "dk": "마감", "m": "제한경쟁", "w": "1.1억", "k": ["세무", "자문"], "l": ["세무법인", "회계법인"], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01794003&bidPbancOrd=000", "f": "2026-10-28T18:27", "c": "", "no": "R26BK01794003"}, {"t": "2027년 재외공관 회계행정시스템 운영관리 및 개선", "o": "조달청 서울지방조달청", "d": "외교부", "b": "용역", "due": "2026-12-01T10:00", "dk": "마감", "m": "제한경쟁", "w": "18.3억", "k": ["회계"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01778242&bidPbancOrd=000", "f": "2026-10-19T20:09", "c": "", "no": "R26BK01778242"}, {"t": "해외 대체투자 세무자문 용역", "o": "사립학교교직원연금공단", "d": "", "b": "용역", "due": "2026-12-07T17:00", "dk": "마감", "m": "일반경쟁", "w": "8.9억", "k": ["세무", "자문"], "l": [], "u": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01791681&bidPbancOrd=000", "f": "2026-10-27T10:08", "c": "", "no": "R26BK01791681"}]};
+const WD = "일월화수목금토";
+const now = new Date();
+const P = s => s ? new Date(s + ":00+09:00") : null;
+const gen = P(D.gen);
+const kst = d => new Date(d.getTime() + 9 * 3600e3);          // KST 달력 계산용
+const dayKey = d => kst(d).toISOString().slice(0, 10);
+const md = d => { const k = kst(d); return (k.getUTCMonth()+1) + "/" + k.getUTCDate() + "(" + WD[k.getUTCDay()] + ")"; };
+const hm = d => kst(d).toISOString().slice(11, 16);
+const dd = d => Math.round((Date.parse(dayKey(d)) - Date.parse(dayKey(now))) / 864e5);
+const esc = s => String(s || "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const rows = D.rows.map(r => Object.assign(r, {due_: P(r.due), f_: P(r.f), c_: P(r.c)}))
+  .filter(r => r.due_ >= now)
+  .sort((a, b) => a.due_ - b.due_);
+rows.forEach(r => {
+  r.isNew = r.f_ && (now - r.f_) < 24 * 3600e3;
+  r.isHot = dd(r.due_) <= 3;
+  r.isChg = r.c_ && (now - r.c_) < 3 * 24 * 3600e3;
+});
+
+document.getElementById("meta").textContent =
+  "갱신 " + md(gen) + " " + hm(gen) + " · 매시 자동 갱신";
+document.getElementById("c-all").textContent = rows.length;
+document.getElementById("c-new").textContent = rows.filter(r => r.isNew).length;
+document.getElementById("c-hot").textContent = rows.filter(r => r.isHot).length;
+
+let filt = "all";
+function draw() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const xs = rows.filter(r => (filt === "all" || (filt === "new" && r.isNew) || (filt === "hot" && r.isHot))
+    && (!q || (r.t + " " + r.o + " " + r.d).toLowerCase().includes(q)));
+  let html = "", last = "";
+  for (const r of xs) {
+    const k = dayKey(r.due_), n = dd(r.due_);
+    if (k !== last) {
+      const lab = n === 0 ? "오늘" : n === 1 ? "내일" : "D-" + n;
+      html += '<div class="day' + (n <= 1 ? " hot" : "") + '">' + md(r.due_) + " · " + lab + "</div>";
+      last = k;
+    }
+    const b = [];
+    if (r.isNew) b.push('<span class="bd new">NEW</span>');
+    if (r.isChg) b.push('<span class="bd chg">정정</span>');
+    b.push('<span class="bd">' + esc(r.b) + "</span>");
+    r.l.forEach(x => b.push('<span class="bd">' + esc(x) + "</span>"));
+    if (!r.l.length) r.k.forEach(x => b.push('<span class="bd">' + esc(x) + "</span>"));
+    html += '<div class="card"><div class="badges">' + b.join("") + "</div>"
+      + '<a class="t" href="' + esc(r.u) + '" target="_blank" rel="noopener">' + esc(r.t) + "</a>"
+      + '<div class="row"><span class="due' + (n <= 1 ? " hot" : "") + '">' + r.dk + " " + md(r.due_) + " " + hm(r.due_) + "</span>"
+      + (r.w ? "<span>" + r.w + "</span>" : "") + (r.m ? "<span>" + esc(r.m) + "</span>" : "") + "</div>"
+      + '<div class="row"><span>' + esc(r.o) + (r.d ? " → " + esc(r.d) : "") + "</span></div></div>";
+  }
+  document.getElementById("list").innerHTML = html || '<div class="empty">해당 공고가 없습니다.</div>';
+}
+document.querySelectorAll(".stat").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".stat").forEach(x => x.classList.remove("on"));
+  b.classList.add("on"); filt = b.dataset.f; draw();
+});
+document.getElementById("q").oninput = draw;
+draw();
+</script>
 </body>
 </html>

@@ -66,6 +66,7 @@
     "원가절감"
   ],
   "lookback_overlap_minutes": 60,
-  "max_lookback_hours": 72,
-  "pages_url": ""
+  "max_lookback_hours": 168,
+  "pages_url": "https://crouz070-afk.github.io/g2b-bid-alert/",
+  "digest_hour": 8
 }

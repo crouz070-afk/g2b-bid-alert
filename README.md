@@ -1,115 +1,72 @@
 # 나라장터 공고 알림 (GitHub Actions)
 
-회계·감사·세무·원가·자문 키워드 및 회계법인·원가검토기관 면허제한 공고를 하루 2회
-자동 스캔해, 신규 건이 있으면 카카오톡 "나에게 보내기"로 알린다.
-
-PC 전원과 무관하게 GitHub 서버에서 실행된다.
+회계·감사·세무·원가·자문 키워드 및 회계법인·원가검토기관 면허제한 공고를 **매시** 스캔한다.
+PC 전원과 무관하게 GitHub 서버에서 돌고, Claude를 거치지 않아 토큰을 쓰지 않는다.
 
 | | |
 |---|---|
-| 실행 시각 | 매일 **08:00 / 18:00 KST** (GitHub cron 특성상 5~15분 지연될 수 있음) |
-| 데이터 출처 | 조달청 나라장터 입찰공고정보서비스 (공공데이터포털) |
-| 알림 채널 | 카카오톡 나에게 보내기 (REST API) |
-| 상태 저장 | `state.json` — 매 실행 후 리포지토리에 커밋 |
+| 실행 | 매시 07분 (GitHub cron 특성상 수 분~수십 분 지연·가끔 누락, 다음 실행이 직전 실행시각부터 되짚어 공고는 빠지지 않음) |
+| 전체 현황 | GitHub Pages `https://<ID>.github.io/g2b-bid-alert/` — 마감 전 공고 전체를 마감 임박순으로, 신규·정정 표시, 검색 |
+| 카톡 | 신규가 있는 시각에 바로 1통 + 매일 아침(08시 이후 첫 실행) 현황 1통. [전체 현황] 버튼 |
+| 데이터 | 조달청 나라장터 입찰공고정보서비스 (공공데이터포털) |
+| 상태 | `state.json`·`notices.json`·`history.csv` — 매 실행 후 리포지토리에 커밋 |
 
 ## 파일
 
 | 파일 | 역할 |
 |---|---|
-| `g2b_scan.py` | 스캔·매칭·이력 기록·요약 생성. 진입점 |
-| `kakao_notify.py` | 카카오 REST API 발송 + 리프레시 토큰 자동 갱신 |
-| `make_html.py` | `docs/index.html` 생성 (GitHub Pages 공개용) |
-| `make_table.py` | 표 이미지 PNG 생성 (워크플로 아티팩트로 보관) |
-| `config.json` | 키워드·제외어·면허·조회구간 설정. **API 키는 들어있지 않다** |
-| `state.json` | 마지막 실행시각 + 이미 알린 공고번호(중복 발송 방지) |
-| `history.csv` | 탐지 누적 이력 |
+| `g2b_scan.py` | 스캔·매칭·진행 중 공고 DB·카톡 문안·발송. 진입점 |
+| `make_html.py` | `docs/index.html`(전체 현황 페이지) 생성 |
+| `kakao_notify.py` | 카카오 REST API 발송 + 리프레시 토큰 갱신본 암호화 보관(`kakao_token.enc`) |
+| `config.json` | 키워드·제외어·면허·조회구간·아침 현황 시각·페이지 주소. **API 키는 없다** |
+| `notices.json` | 매칭된 공고 DB(정정·취소 반영, 기한 30일 지나면 정리) |
+| `state.json` | 마지막 실행시각, 이미 알린 공고번호, 발송 실패 대기분, 마지막 아침 현황 |
+| `history.csv` | 신규 탐지 누적 이력(엑셀용 UTF-8 BOM) |
+| `setup/` | 0 로컬 상태 이관 · 1 카카오 토큰 받기 · 2 GitHub 설정 |
 
-## 최초 설치
+## 동작 규칙
 
-### 1. 리포지토리 생성
+- **신규 판정**: 공고명 키워드(용역·기타) 또는 면허제한(전 업무) 매칭 + 처음 보는 공고번호. **취소공고는 신규로 잡지 않는다**(구 로컬판은 잡았음).
+- **정정·취소**: 추적 중 공고의 새 차수가 오면 마감일 등을 갱신하고, 취소면 목록에서 빼고 다음 카톡에 `✕ 취소`로 알린다. 정정은 페이지에 `정정` 표시만.
+- **기한**: 입찰마감 → 없으면 개찰일시 → 없으면 게시 후 14일. 지나면 목록에서 자동으로 빠진다.
+- **발송 실패**: 대기분으로 남겨 다음 실행에 다시 보낸다. 워크플로가 실패로 표시되어 GitHub 메일이 온다.
+- **조달청 API 장애**: 상태를 갱신하지 않아 다음 실행이 같은 구간을 다시 본다. 6시간 넘게 이어질 때만 실패 표시.
 
-GitHub에서 새 리포지토리를 만든다 (이름 예: `g2b-bid-alert`).
-**Private 권장** — Public이어야 하는 이유는 아래 4번뿐이다.
+## 매칭 엔진 주의점 (중요)
 
-```bash
-git remote add origin https://github.com/<사용자명>/g2b-bid-alert.git
-git branch -M main
-git push -u origin main
-```
+- **2글자 키워드는 공백을 허용하지 않는다.** 공백을 제거하고 매칭하면 `제16회 계룡군문화축제` → `회계` 오매칭.
+- **3글자 이상 복합어만 내부 공백 허용**(`가치 평가` → `가치평가`).
+- **제외어는 공백으로 치환**한다(빈 문자열로 지우면 앞뒤가 붙어 새 오매칭이 생김).
+- 대표 함정: `전자문서`→자문, `동고양세무서`→세무, `감사용 노트북`→감사, `안전감사실`→감사.
 
-### 2. 카카오 앱 준비 (한 번만)
+## 설치
 
-1. [카카오 개발자센터](https://developers.kakao.com) → 내 애플리케이션 → **애플리케이션 추가**
-2. **앱 키** 메뉴에서 `REST API 키` 복사 → 나중에 `KAKAO_REST_KEY`로 등록
-3. **카카오 로그인** 활성화 ON, Redirect URI에 `https://localhost:3000` 등록
-4. **동의항목** → `카카오톡 메시지 전송(talk_message)` 선택 동의로 설정
-5. 브라우저에서 아래 주소를 열어 로그인·동의하고, 리디렉션된 주소창의 `code=` 값을 복사한다.
+1. 카카오 개발자센터에서 **나라장터 전용 앱**을 만든다(통화녹음 알림과 같은 앱이면 토큰이 서로 폐기됨).
+   - 카카오 로그인 ON, Redirect URI `http://localhost:5000/oauth`
+   - 동의항목 `카카오톡 메시지 전송(talk_message)` 선택 동의
+   - 플랫폼 > Web 사이트 도메인: `https://<깃허브ID>.github.io`, `https://www.g2b.go.kr`
+2. `python setup/1_카카오토큰받기.py` → 브라우저 동의 → `setup/.env` 생성(깃에 안 올라감), 테스트 카톡 수신 확인
+3. `powershell -ExecutionPolicy Bypass -File setup\2_깃허브설정.ps1` → 로컬 상태 이관, 공개 리포 생성, 시크릿·Pages 설정, 첫 실행
+4. 정상 동작을 확인하면 Claude 예약작업 `g2b-bid-scan`을 끈다(중복 알림 방지).
 
-```
-https://kauth.kakao.com/oauth/authorize?client_id=<REST_API_키>&redirect_uri=https://localhost:3000&response_type=code&scope=talk_message
-```
-
-6. 그 code로 리프레시 토큰을 받는다 (code는 1회용, 몇 분 내 사용).
-
-```bash
-curl -X POST "https://kauth.kakao.com/oauth/token" -d "grant_type=authorization_code" -d "client_id=<REST_API_키>" -d "redirect_uri=https://localhost:3000" -d "code=<복사한_code>"
-```
-
-응답의 `refresh_token` 값을 `KAKAO_REFRESH_TOKEN`으로 등록한다.
-
-### 3. 시크릿 등록
-
-리포지토리 → Settings → Secrets and variables → Actions → New repository secret
-
-| 이름 | 값 | 필수 |
-|---|---|---|
-| `G2B_SERVICE_KEY` | 공공데이터포털 서비스키(Decoding 값) | 필수 |
-| `KAKAO_REST_KEY` | 카카오 REST API 키 | 필수 |
-| `KAKAO_REFRESH_TOKEN` | 위에서 받은 리프레시 토큰 | 필수 |
-| `GH_PAT` | Fine-grained PAT, 이 리포지토리에 `Secrets: Read and write` 권한 | 선택 |
-
-`GH_PAT`를 넣으면 카카오가 리프레시 토큰을 재발급할 때(2개월마다) 시크릿이 자동으로
-갱신된다. 넣지 않으면 2개월 뒤 발송이 끊기고, 워크플로 로그에 새 토큰이 남으므로
-그때 수동으로 교체하면 된다.
-
-### 4. (선택) 공고 목록 웹페이지
-
-`docs/index.html`을 GitHub Pages로 띄우면 카톡 알림의 버튼이 표 형태 목록으로 연결된다.
-
-- Settings → Pages → Source: `Deploy from a branch`, Branch: `main` / `/docs`
-- 배포 주소를 `config.json`의 `pages_url`에 넣고 커밋
-
-**Private 리포지토리의 Pages는 GitHub Pro(유료) 이상에서만 동작한다.**
-`pages_url`이 비어 있으면 카톡 버튼은 첫 번째 공고의 나라장터 페이지로 바로 연결되므로,
-Pages 없이도 알림 기능은 완전하게 동작한다.
-
-### 5. 동작 확인
-
-Actions 탭 → `g2b-bid-scan` → **Run workflow**로 수동 실행.
+시크릿: `G2B_SERVICE_KEY`, `KAKAO_REST_KEY`, `KAKAO_REFRESH_TOKEN`, `KAKAO_TOKEN_KEY`(갱신 토큰 암호화 키), `KAKAO_CLIENT_SECRET`(앱에서 켠 경우만).
 
 ## 로컬 실행
 
 ```bash
 export G2B_SERVICE_KEY="..."
-python g2b_scan.py --hours 24 --dry    # 상태·발송 없이 테스트
-python g2b_scan.py --hours 24          # 상태 갱신, 발송 없음
-python g2b_scan.py --notify            # 정상 실행 + 카톡 발송
-python kakao_notify.py "테스트"         # 카카오 연결만 확인
+python g2b_scan.py --hours 24 --dry           # 상태·발송 없이 테스트(카톡 문안 출력)
+python g2b_scan.py --dry --digest             # 아침 현황 문안 미리보기
+python kakao_notify.py "테스트"                # 카카오 연결만 확인(KAKAO_* 환경변수 필요)
 ```
 
 ## 설정 변경
 
 `config.json`을 고치고 커밋하면 다음 실행부터 반영된다.
-
-- `keywords` / `exclude_patterns` — 공고명 매칭. 2글자 키워드는 공백을 허용하지 않아
-  "제16회 계룡"이 "회계"로 오매칭되지 않는다.
-- `license_keywords` — 참가자격 면허명 매칭. 공고명에 키워드가 없어도 잡힌다.
-- `lookback_overlap_minutes` — 직전 실행시각에서 되짚는 여유분(누락 방지).
-- `max_lookback_hours` — 오래 멈춰 있었을 때 한 번에 되짚는 최대 범위.
+- 알림이 많으면 `keywords`에서 `자문`/`감사`를 빼거나 `회계감사` 같은 복합어로 교체.
+- `digest_hour`: 아침 현황 시각(기본 8).
 
 ## 알아둘 것
 
-- **60일 무활동 시 스케줄 정지** — GitHub는 활동이 없는 리포지토리의 예약 워크플로를
-  자동으로 멈추고 메일로 알린다. 메일의 링크나 Actions 탭에서 한 번 활성화하면 재개된다.
-- **중복 발송 방지는 `state.json`이 담당** — 임의로 지우면 과거 공고가 다시 알림으로 나간다.
-- **0건이면 아무것도 보내지 않는다** — 조용한 날은 카톡이 오지 않는 것이 정상이다.
+- 카카오 리프레시 토큰이 끊기면(장기 미사용 등) `1_카카오토큰받기.py`를 다시 돌려 `KAKAO_REFRESH_TOKEN` 시크릿만 바꾸면 된다.
+- 공개 리포지토리라 60일 무활동 시 예약 실행이 멈출 수 있으나, 매시 상태를 커밋하므로 해당 없음.

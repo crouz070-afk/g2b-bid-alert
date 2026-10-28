@@ -12,6 +12,9 @@
 사전 준비(카카오 개발자센터에서 한 번):
   - 앱 > 카카오 로그인 > Redirect URI 에  http://localhost:5000/oauth  등록
   - 앱 > 카카오 로그인 > 동의항목 > '카카오톡 메시지 전송' 사용 설정
+  - 앱 > 플랫폼 > Web 사이트 도메인에  https://<깃허브ID>.github.io  와  https://www.g2b.go.kr  등록
+    (카톡 '전체 현황' 버튼 링크는 등록된 도메인만 열린다)
+  - 통화녹음 알림(C:/CallRec)과 같은 앱을 쓰면 서로의 토큰이 폐기되므로 나라장터 전용 앱을 만든다.
 """
 import json, os, sys, threading, urllib.parse, urllib.request, urllib.error, webbrowser
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -80,6 +83,10 @@ def main():
         rest_key = input("REST API 키: ").strip()
     if not rest_key:
         raise SystemExit("키가 비어 있습니다.")
+    secret = env.get("KAKAO_CLIENT_SECRET", "")
+    if "KAKAO_CLIENT_SECRET" not in env:
+        print("앱 > 카카오 로그인 > 보안 에서 Client Secret을 '사용함'으로 켜 둔 경우에만 코드를 붙여넣으세요.")
+        secret = input("Client Secret (없으면 그냥 Enter): ").strip()
 
     auth = ("https://kauth.kakao.com/oauth/authorize?"
             + urllib.parse.urlencode({"client_id": rest_key, "redirect_uri": REDIRECT,
@@ -97,14 +104,17 @@ def main():
     if not result.get("code"):
         raise SystemExit("인증코드를 받지 못했습니다: %s" % result.get("error", "알 수 없음"))
 
-    tok = post_form("https://kauth.kakao.com/oauth/token",
-                    {"grant_type": "authorization_code", "client_id": rest_key,
-                     "redirect_uri": REDIRECT, "code": result["code"]})
+    form = {"grant_type": "authorization_code", "client_id": rest_key,
+            "redirect_uri": REDIRECT, "code": result["code"]}
+    if secret:
+        form["client_secret"] = secret
+    tok = post_form("https://kauth.kakao.com/oauth/token", form)
     if not tok.get("refresh_token"):
         raise SystemExit("리프레시 토큰이 없습니다: %s" % tok)
 
     env["KAKAO_REST_KEY"] = rest_key
     env["KAKAO_REFRESH_TOKEN"] = tok["refresh_token"]
+    env["KAKAO_CLIENT_SECRET"] = secret
     save_env(env)
 
     days = int(tok.get("refresh_token_expires_in", 0)) // 86400
@@ -113,7 +123,7 @@ def main():
     # 바로 테스트 발송
     try:
         obj = {"object_type": "text", "text": "[나라장터] 연결 테스트입니다. 이 메시지가 보이면 설정 완료.",
-               "link": {"web_url": "https://www.g2b.go.kr", "mobile_web_url": "https://www.g2b.go.kr"}}
+               "link": {}}
         req = urllib.request.Request("https://kapi.kakao.com/v2/api/talk/memo/default/send",
                                      data=urllib.parse.urlencode(
                                          {"template_object": json.dumps(obj, ensure_ascii=False)}).encode("utf-8"))
