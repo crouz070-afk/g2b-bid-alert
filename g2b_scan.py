@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 """나라장터 공고 알림 (조달청 공공데이터포털 입찰공고정보서비스)
 
-매시 실행된다. 매칭 공고를 notices.json에 누적해 '진행 중 공고 전체'를 유지하고,
-docs/index.html(전체 현황 페이지)을 다시 만든 뒤 카카오톡으로 알린다.
-  - 신규 공고가 있으면 그 시각에 바로 알림
-  - 매일 아침(digest_hour) 첫 실행에는 신규가 없어도 전체 현황 요약 1통
+목표는 "남보다 먼저 입찰" — 평일 업무시간엔 5분마다 돌아 새 공고를 공고별 카톡으로 바로 보낸다.
+매칭 공고는 notices.json에 누적하고, docs/index.html(전체 현황, 최신 공고순)을 만든다.
+  - 신규 공고: 1건당 카톡 1통 + [공고 바로가기] 버튼(나라장터 공고로 직결)
+  - 매일 아침(digest_hour) 첫 실행: 지난 아침 이후 신규 목록 1통
+
+호출 절약(개발계정 하루 1,000회): 공고목록은 키워드 대상인 용역·기타만 받고,
+물품·공사는 면허제한 목록에서 걸린 공고만 공고번호로 조회한다(실행당 약 3회).
 
 GitHub Actions / 로컬 공용. 시각은 항상 KST 기준으로 계산한다.
 
@@ -17,8 +20,9 @@ GitHub Actions / 로컬 공용. 시각은 항상 KST 기준으로 계산한다.
 환경변수:
   G2B_SERVICE_KEY       공공데이터포털 서비스키(필수, config.json 값보다 우선)
   KAKAO_*               kakao_notify.py 참고 (--notify 시 필수)
+  GITHUB_OUTPUT         Actions가 주입. 페이지를 다시 배포할지(deploy=true) 기록
 """
-import urllib.request, urllib.parse, json, os, sys, csv, re, time
+import urllib.request, urllib.parse, json, os, sys, csv, re, time, hashlib
 from datetime import datetime, timedelta, timezone
 
 BASE = "https://apis.data.go.kr/1230000/ad/BidPublicInfoService/"
@@ -28,9 +32,11 @@ STATE_F   = os.path.join(DIR, "state.json")
 NOTICES_F = os.path.join(DIR, "notices.json")
 HIST_F    = os.path.join(DIR, "history.csv")
 
-OPS = {"Servc": "용역", "Thng": "물품", "Cnstwk": "공사", "Etc": "기타"}
-KST = timezone(timedelta(hours=9))
-WD  = "월화수목금토일"
+OPS  = {"Servc": "용역", "Thng": "물품", "Cnstwk": "공사", "Etc": "기타"}
+SUF  = {v: k for k, v in OPS.items()}
+KST  = timezone(timedelta(hours=9))
+WD   = "월화수목금토일"
+MAX_EACH = 5          # 한 번에 공고별로 보내는 최대 건수(넘치면 요약 1통)
 
 SERVICE_KEY = os.environ.get("G2B_SERVICE_KEY") or CFG.get("serviceKey") or ""
 
@@ -53,9 +59,9 @@ EXC = [_pat(x) for x in CFG["exclude_patterns"]]
 
 
 # ---------------------------------------------------------------- API
-def fetch(op, bgn, end, page=1):
-    q = {"serviceKey": SERVICE_KEY, "type": "json", "pageNo": page,
-         "numOfRows": 999, "inqryDiv": 1, "inqryBgnDt": bgn, "inqryEndDt": end}
+def fetch(op, page=1, **params):
+    q = {"serviceKey": SERVICE_KEY, "type": "json", "pageNo": page, "numOfRows": 999}
+    q.update(params)
     url = BASE + op + "?" + urllib.parse.urlencode(q)
     for attempt in range(3):
         try:
@@ -68,14 +74,20 @@ def fetch(op, bgn, end, page=1):
             time.sleep(5)
 
 
-def fetch_all(op, bgn, end):
+def fetch_window(op, bgn, end):
     out, page = [], 1
     while True:
-        items, total = fetch(op, bgn, end, page)
+        items, total = fetch(op, page, inqryDiv=1, inqryBgnDt=bgn, inqryEndDt=end)
         out += items
         if not items or len(out) >= total or page >= 40:
             return out
         page += 1
+
+
+def fetch_by_no(suf, no):
+    """공고번호로 전 차수를 받아 최신 차수 1건을 돌려준다."""
+    items, _ = fetch("getBidPblancListInfo" + suf, inqryDiv=2, bidNtceNo=no)
+    return max(items, key=lambda x: x.get("bidNtceOrd") or "") if items else None
 
 
 # ---------------------------------------------------------------- 날짜·표시
@@ -85,7 +97,7 @@ def pdt(s):
 
 
 def due_of(n):
-    """목록 정렬·만료 판단용 기한. 입찰마감 → 없으면 개찰일시 → 없으면 게시 후 14일."""
+    """만료 판단용 기한. 입찰마감 → 없으면 개찰일시 → 없으면 게시 후 14일."""
     d = pdt(n.get("close")) or pdt(n.get("open"))
     if d:
         return d
@@ -102,11 +114,6 @@ def is_active(n, now):
 
 def md(d):
     return "%d/%d(%s)" % (d.month, d.day, WD[d.weekday()])
-
-
-def dday(d, now):
-    k = (d.date() - now.date()).days
-    return "오늘" if k == 0 else ("내일" if k == 1 else "D-%d" % k)
 
 
 def won(v):
@@ -135,9 +142,9 @@ def load_json(path, default):
     return default
 
 
-def to_notice(it, kw, lic, found):
+def to_notice(it, suf, kw, lic, found):
     return {"no": it.get("bidNtceNo", ""), "ord": it.get("bidNtceOrd", "") or "000",
-            "kind": it.get("ntceKindNm", ""), "biz": OPS[it["_biz"]],
+            "kind": it.get("ntceKindNm", ""), "biz": OPS[suf],
             "title": re.sub(r"\s+", " ", it.get("bidNtceNm", "") or "").strip(),
             "org": it.get("ntceInsttNm", ""), "dem": it.get("dminsttNm", ""),
             "posted": it.get("bidNtceDt", ""), "close": it.get("bidClseDt", ""),
@@ -148,52 +155,44 @@ def to_notice(it, kw, lic, found):
 
 
 # ---------------------------------------------------------------- 카톡 문안
-def line_item(n, now, k):
-    d = due_of(n)
-    tail = []
-    if n.get("org"):
-        tail.append(short(n["org"], 16))
-    if won(n.get("budget")):
-        tail.append(won(n["budget"]))
-    if d:
-        tail.append("%s %s %s" % ("마감" if n.get("close") else "개찰", md(d), dday(d, now)))
-    return "%d. %s\n   %s" % (k, short(n["title"], 42), " · ".join(tail))
+def msg_one(n):
+    """공고 1건 = 카톡 1통. 바로 입찰 판단에 필요한 것만, 버튼은 나라장터 공고 직결."""
+    p = pdt(n.get("posted"))
+    org = n["org"] + (" → " + n["dem"] if n.get("dem") and n["dem"] != n["org"] else "")
+    meta = " · ".join(x for x in (n["biz"], n.get("method"), won(n.get("budget"))) if x)
+    match = " · ".join(n["kw"] + [x.split("/")[0] for x in n["lic"]])
+    lines = ["[나라장터 신규]", n["title"], org, meta,
+             "공고번호 %s-%s" % (n["no"], n.get("ord", "000"))]
+    if p:
+        lines.append("게시 %s %s" % (md(p), p.strftime("%H:%M")))
+    if match:
+        lines.append("매칭 " + match)
+    return "\n".join(lines)
 
 
-def footer(active, now):
-    soon = sum(1 for n in active if (due_of(n).date() - now.date()).days <= 1)
-    return "진행 중 %d건 · 오늘·내일 마감 %d건" % (len(active), soon)
-
-
-def msg_new(new, cancelled, active, now, limit=15):
-    out = ["[나라장터] 신규 %d건 · %s %d시" % (len(new), md(now), now.hour)] if new \
-        else ["[나라장터] 공고 취소 · %s %d시" % (md(now), now.hour)]
-    for k, n in enumerate(new[:limit], 1):
-        out.append(line_item(n, now, k))
-    if len(new) > limit:
-        out.append("…외 %d건은 전체 현황에서" % (len(new) - limit))
-    for n in cancelled:
-        out.append("✕ 취소: %s" % short(n["title"], 40))
-    out += ["", footer(active, now)]
+def msg_many(new, now):
+    out = ["[나라장터 신규] %d건 · %s %s" % (len(new), md(now), now.strftime("%H:%M"))]
+    for k, n in enumerate(new[:20], 1):
+        out.append("%d. %s\n   %s · %s" % (k, short(n["title"], 42), short(n["org"], 16), n["no"]))
+    if len(new) > 20:
+        out.append("…외 %d건은 전체 현황에서" % (len(new) - 20))
     return "\n".join(out)
 
 
-def msg_digest(active, fresh, cancelled, now):
+def msg_cancel(cancelled):
+    return "\n".join(["[나라장터] 공고 취소 %d건" % len(cancelled)] +
+                     ["✕ %s (%s)" % (short(n["title"], 40), n["no"]) for n in cancelled])
+
+
+def msg_digest(active, fresh, now):
     out = ["[나라장터] %s %s" % (md(now), "아침 현황" if now.hour < 12 else "%d시 현황" % now.hour),
            "진행 중 %d건 · 지난 현황 이후 신규 %d건" % (len(active), len(fresh))]
-    for label, k in (("오늘 마감", 0), ("내일 마감", 1)):
-        xs = [n for n in active if (due_of(n).date() - now.date()).days == k]
-        if xs:
-            out += ["", "■ %s %d건" % (label, len(xs))]
-            out += ["· %s %s (%s)" % (due_of(n).strftime("%H:%M"), short(n["title"], 34),
-                                      short(n["org"], 12)) for n in xs]
-    if fresh:
-        out += ["", "■ 신규 %d건" % len(fresh)]
-        out += [line_item(n, now, k) for k, n in enumerate(fresh[:15], 1)]
-        if len(fresh) > 15:
-            out.append("…외 %d건은 전체 현황에서" % (len(fresh) - 15))
-    for n in cancelled:
-        out.append("✕ 취소: %s" % short(n["title"], 40))
+    for k, n in enumerate(fresh[:20], 1):
+        p = pdt(n.get("posted"))
+        out.append("%d. %s\n   %s · %s 게시" % (k, short(n["title"], 42), short(n["org"], 16),
+                                               "%s %s" % (md(p), p.strftime("%H:%M")) if p else "-"))
+    if len(fresh) > 20:
+        out.append("…외 %d건은 전체 현황에서" % (len(fresh) - 20))
     return "\n".join(out)
 
 
@@ -214,6 +213,7 @@ def main():
 
     st   = load_json(STATE_F, {})
     db   = load_json(NOTICES_F, {})
+    st0, db0 = json.dumps(st, sort_keys=True), json.dumps(db, sort_keys=True)
     seen = set(st.get("seen", []))
     now  = now_kst()
     stamp = now.strftime("%Y-%m-%d %H:%M")
@@ -227,20 +227,40 @@ def main():
         bgn_dt = now - timedelta(hours=12)
     bgn, end = bgn_dt.strftime("%Y%m%d%H%M"), now.strftime("%Y%m%d%H%M")
 
-    # 1) 면허(업종)제한 -> 공고번호별 면허명
-    lic = {}
-    for it in fetch_all("getBidPblancListInfoLicenseLimit", bgn, end):
-        lic.setdefault(it.get("bidNtceNo", ""), set()).add(it.get("lcnsLmtNm", ""))
+    # 1) 면허(업종)제한 -> 공고번호별 면허명·업무구분·차수
+    lic, lic_biz, lic_ord = {}, {}, {}
+    for it in fetch_window("getBidPblancListInfoLicenseLimit", bgn, end):
+        no = it.get("bidNtceNo", "")
+        lic.setdefault(no, set()).add(it.get("lcnsLmtNm", ""))
+        lic_biz[no] = it.get("bsnsDivNm", "")
+        lic_ord[no] = max(lic_ord.get(no, ""), it.get("bidNtceOrd") or "")
 
-    # 2) 공고목록 — 같은 공고번호는 최신 차수(정정·취소)만 남긴다
+    # 2) 공고목록 — 키워드 대상(용역·기타)만 받는다. 같은 공고번호는 최신 차수만 남긴다
     latest, scanned = {}, {}
-    for suf in sorted(set(CFG["keyword_scope"]) | set(CFG["license_scope"])):
-        items = fetch_all("getBidPblancListInfo" + suf, bgn, end)
+    for suf in CFG["keyword_scope"]:
+        items = fetch_window("getBidPblancListInfo" + suf, bgn, end)
         scanned[OPS[suf]] = len(items)
         for it in items:
             it["_biz"] = suf
             no = it.get("bidNtceNo", "")
             if no not in latest or (it.get("bidNtceOrd") or "") >= (latest[no].get("bidNtceOrd") or ""):
+                latest[no] = it
+
+    # 2b) 그 밖의 업무(물품·공사)는 면허가 걸렸거나 추적 중 공고의 새 차수가 보일 때만 번호로 조회
+    lookups = 0
+    for no, names in lic.items():
+        if no in latest:
+            continue
+        suf = SUF.get(lic_biz.get(no, ""))
+        if not suf or suf not in CFG["license_scope"]:
+            continue
+        hit = any(k in nm for nm in names for k in CFG["license_keywords"])
+        newer = no in db and lic_ord.get(no, "") > db[no].get("ord", "")
+        if (hit and no not in db) or newer:
+            it = fetch_by_no(suf, no)
+            lookups += 1
+            if it:
+                it["_biz"] = suf
                 latest[no] = it
 
     # 3) 매칭 + DB 반영
@@ -253,7 +273,7 @@ def main():
         if old:   # 이미 추적 중인 공고: 정정·취소만 반영
             if (it.get("bidNtceOrd") or "") > old.get("ord", ""):
                 was_active = is_active(old, now)
-                upd = to_notice(it, old["kw"], old["lic"], old["found"])
+                upd = to_notice(it, suf, old["kw"], old["lic"], old["found"])
                 if kind == "취소공고":
                     upd["status"] = "cancelled"
                     if was_active:
@@ -278,44 +298,51 @@ def main():
         if not (kw_hit or lic_hit) or kind == "취소공고":
             continue
 
-        n = to_notice(it, kw_hit, lic_hit, stamp)
+        n = to_notice(it, suf, kw_hit, lic_hit, stamp)
         db[no] = n
         if no not in seen:
             new.append(n)
 
-    new.sort(key=lambda n: n["posted"], reverse=True)
+    new.sort(key=lambda n: n["posted"])          # 카톡은 게시 순서대로 쌓이게
 
     # 4) 오래된 공고 정리(기한 30일 경과) — seen에는 남아 재알림되지 않는다
     for no in [k for k, n in db.items() if (due_of(n) or now) < now - timedelta(days=30)]:
         del db[no]
 
-    active = sorted((n for n in db.values() if is_active(n, now)), key=due_of)
+    active = [n for n in db.values() if is_active(n, now)]
 
-    # 5) 카톡 — 아침 첫 실행이면 현황, 아니면 신규(이전 발송 실패분 포함)
-    pending = [db[no] for no in st.get("pending", []) if no in db and is_active(db[no], now)]
-    to_send = pending + [n for n in new if n["no"] not in st.get("pending", [])]
-    today = now.strftime("%Y-%m-%d")
-    want_digest = force_digest or (now.hour >= CFG.get("digest_hour", 8) and st.get("last_digest") != today)
+    # 5) 카톡 — 신규는 공고별 즉시, 아침 첫 실행엔 현황 1통 추가
+    pend_nos = st.get("pending", [])
+    pending  = [db[no] for no in pend_nos if no in db and is_active(db[no], now)]
+    to_send  = pending + [n for n in new if n["no"] not in pend_nos]
+    today    = now.strftime("%Y-%m-%d")
+    want_digest = force_digest or (CFG.get("digest_hour") is not None and now.hour >= CFG["digest_hour"]
+                                   and st.get("last_digest") != today)
 
-    message = ""
+    msgs = []     # (문안, 링크, 대상 공고번호들)
+    if len(to_send) > MAX_EACH:
+        msgs.append((msg_many(to_send, now), CFG.get("pages_url", ""), [n["no"] for n in to_send]))
+    else:
+        msgs += [(msg_one(n), n["url"], [n["no"]]) for n in to_send]
+    if cancelled:
+        msgs.append((msg_cancel(cancelled), CFG.get("pages_url", ""), []))
     if want_digest:
         since = st.get("last_digest_at") or (now - timedelta(hours=24)).strftime("%Y-%m-%d %H:%M")
         fresh = sorted((n for n in active if n["found"] >= since), key=lambda n: n["posted"], reverse=True)
-        message = msg_digest(active, fresh, cancelled, now)
-    elif to_send or cancelled:
-        message = msg_new(to_send, cancelled, active, now)
+        msgs.append((msg_digest(active, fresh, now), CFG.get("pages_url", ""), ["__digest__"]))
 
-    sent = None
-    if message and notify:
-        try:
-            import kakao_notify
-            kakao_notify.send(message, CFG.get("pages_url") or (to_send[0]["url"] if to_send else ""))
-            sent = "ok"
-        except Exception as e:
-            sent = "ERROR: %s" % e
-            print("[error] kakao: %s" % e, file=sys.stderr)
+    sent, failed = 0, []
+    if notify and msgs:
+        import kakao_notify
+        for text, link, nos in msgs:
+            try:
+                kakao_notify.send(text, link, "공고 바로가기" if link and link != CFG.get("pages_url") else "전체 현황")
+                sent += 1
+            except Exception as e:
+                failed += nos
+                print("[error] kakao: %s" % e, file=sys.stderr)
 
-    # 6) 기록
+    # 6) 기록 — 바뀐 게 없으면 파일을 건드리지 않아 커밋도 생기지 않는다(마지막 실행시각은 2시간마다만 갱신)
     if not dry:
         if new:
             fresh_file = not os.path.exists(HIST_F)
@@ -330,29 +357,42 @@ def main():
                                 n["posted"], n["close"], n["open"], n["method"], n["budget"],
                                 ",".join(n["kw"]), " / ".join(n["lic"]), n["url"]])
 
-        st["last_run"] = now.isoformat(timespec="seconds")
         st["seen"] = (st.get("seen", []) + [n["no"] for n in new])[-20000:]
-        delivered = (sent == "ok")
         if notify:
-            st["pending"] = [] if delivered else [n["no"] for n in to_send]
-            if want_digest and delivered:
+            st["pending"] = [no for no in failed if no != "__digest__"]
+            if want_digest and "__digest__" not in failed:
                 st["last_digest"], st["last_digest_at"] = today, stamp
-        json.dump(st, open(STATE_F, "w", encoding="utf-8"), ensure_ascii=False)
-        json.dump(db, open(NOTICES_F, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 
-    try:
-        import make_html
-        make_html.render(active, now, scanned, (bgn_dt, now))
-    except Exception as e:
-        print("[warn] html: %s" % e, file=sys.stderr)
+    # 7) 전체 현황 페이지 — 내용이 바뀌었거나 1시간 지났을 때만 다시 배포
+    import make_html
+    page_hash = make_html.digest(active)
+    deploy = (page_hash != st.get("page_hash")
+              or not st.get("page_at") or now - datetime.fromisoformat(st["page_at"]) >= timedelta(minutes=60))
+    if deploy:
+        make_html.render(active, now)
+        if not dry:
+            st["page_hash"], st["page_at"] = page_hash, now.isoformat(timespec="seconds")
+    if os.environ.get("GITHUB_OUTPUT"):
+        open(os.environ["GITHUB_OUTPUT"], "a").write("deploy=%s\n" % str(deploy).lower())
+
+    if not dry:
+        stale = not st.get("last_run") or now - datetime.fromisoformat(st["last_run"]) >= timedelta(hours=2)
+        dirty = json.dumps(db, sort_keys=True) != db0 or \
+            json.dumps({k: v for k, v in st.items() if k != "last_run"}, sort_keys=True) != \
+            json.dumps({k: v for k, v in json.loads(st0).items() if k != "last_run"}, sort_keys=True)
+        if dirty or stale:
+            st["last_run"] = now.isoformat(timespec="seconds")
+            json.dump(st, open(STATE_F, "w", encoding="utf-8"), ensure_ascii=False)
+            json.dump(db, open(NOTICES_F, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 
     print(json.dumps({"new": len(new), "pending": len(pending), "cancelled": len(cancelled),
                       "changed": len(changed), "active": len(active), "scanned": scanned,
-                      "window": [bgn, end], "digest": want_digest, "kakao": sent},
+                      "lookups": lookups, "window": [bgn, end], "digest": want_digest,
+                      "kakao": "%d/%d" % (sent, len(msgs)) if notify else None, "deploy": deploy},
                      ensure_ascii=False))
-    if message:
-        print("\n" + message)
-    if sent and sent != "ok":
+    for text, _, _ in msgs:
+        print("\n" + text)
+    if failed:
         sys.exit(2)     # 워크플로를 실패로 표시해 GitHub 메일 알림을 받는다(상태는 위에서 이미 저장)
 
 

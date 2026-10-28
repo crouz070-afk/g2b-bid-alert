@@ -90,16 +90,20 @@ def access_token():
     raise RuntimeError("카카오 토큰 갱신 실패(리프레시 토큰 만료 가능): %s" % last)
 
 
-def send(text, link_url=""):
-    """텍스트 템플릿으로 나에게 보내기. 링크는 '전체 현황' 버튼이 된다.
-    링크 도메인은 카카오 앱의 플랫폼(Web) 사이트 도메인에 등록돼 있어야 한다."""
+_TOKEN = None
+
+
+def send(text, link_url="", button_title="전체 현황"):
+    """텍스트 템플릿으로 나에게 보내기. 링크는 버튼이 된다.
+    링크 도메인은 카카오 앱의 [제품 링크 관리] > [웹 도메인]에 등록돼 있어야 한다."""
+    global _TOKEN
     link = {"web_url": link_url, "mobile_web_url": link_url} if link_url else {}
-    tok = access_token()
+    tok = _TOKEN = _TOKEN or access_token()     # 한 실행에서 여러 통 보낼 때 토큰 갱신은 1번만
 
     def _send(t):
         obj = {"object_type": "text", "text": t, "link": link}
         if link_url:
-            obj["button_title"] = "전체 현황"
+            obj["button_title"] = button_title
         return _post_form(SEND_URL, {"template_object": json.dumps(obj, ensure_ascii=False)},
                           {"Authorization": "Bearer " + tok})
 
