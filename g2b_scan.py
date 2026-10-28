@@ -65,7 +65,7 @@ def fetch(op, page=1, **params):
     url = BASE + op + "?" + urllib.parse.urlencode(q)
     for attempt in range(3):
         try:
-            with urllib.request.urlopen(url, timeout=90) as r:
+            with urllib.request.urlopen(url, timeout=25) as r:   # 5분 간격이라 오래 붙잡지 않는다
                 body = json.loads(r.read().decode("utf-8"))["response"]["body"]
             return body.get("items") or [], int(body.get("totalCount") or 0)
         except Exception as e:
@@ -228,12 +228,18 @@ def main():
     bgn, end = bgn_dt.strftime("%Y%m%d%H%M"), now.strftime("%Y%m%d%H%M")
 
     # 1) 면허(업종)제한 -> 공고번호별 면허명·업무구분·차수
-    lic, lic_biz, lic_ord = {}, {}, {}
-    for it in fetch_window("getBidPblancListInfoLicenseLimit", bgn, end):
-        no = it.get("bidNtceNo", "")
-        lic.setdefault(no, set()).add(it.get("lcnsLmtNm", ""))
-        lic_biz[no] = it.get("bsnsDivNm", "")
-        lic_ord[no] = max(lic_ord.get(no, ""), it.get("bidNtceOrd") or "")
+    #    이 조회가 조달청 쪽에서 가끔 멈춘다. 실패해도 키워드 알림은 내보내고,
+    #    마지막 실행시각을 그대로 둬서 다음 실행이 이 구간의 면허제한을 다시 본다.
+    lic, lic_biz, lic_ord, partial = {}, {}, {}, False
+    try:
+        for it in fetch_window("getBidPblancListInfoLicenseLimit", bgn, end):
+            no = it.get("bidNtceNo", "")
+            lic.setdefault(no, set()).add(it.get("lcnsLmtNm", ""))
+            lic_biz[no] = it.get("bsnsDivNm", "")
+            lic_ord[no] = max(lic_ord.get(no, ""), it.get("bidNtceOrd") or "")
+    except RuntimeError as e:
+        partial = True
+        print("[warn] 면허제한 조회 실패 — 키워드만 확인: %s" % e, file=sys.stderr)
 
     # 2) 공고목록 — 키워드 대상(용역·기타)만 받는다. 같은 공고번호는 최신 차수만 남긴다
     latest, scanned = {}, {}
@@ -381,13 +387,14 @@ def main():
             json.dumps({k: v for k, v in st.items() if k != "last_run"}, sort_keys=True) != \
             json.dumps({k: v for k, v in json.loads(st0).items() if k != "last_run"}, sort_keys=True)
         if dirty or stale:
-            st["last_run"] = now.isoformat(timespec="seconds")
+            if not partial:
+                st["last_run"] = now.isoformat(timespec="seconds")
             json.dump(st, open(STATE_F, "w", encoding="utf-8"), ensure_ascii=False)
             json.dump(db, open(NOTICES_F, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
 
     print(json.dumps({"new": len(new), "pending": len(pending), "cancelled": len(cancelled),
                       "changed": len(changed), "active": len(active), "scanned": scanned,
-                      "lookups": lookups, "window": [bgn, end], "digest": want_digest,
+                      "lookups": lookups, "partial": partial, "window": [bgn, end], "digest": want_digest,
                       "kakao": "%d/%d" % (sent, len(msgs)) if notify else None, "deploy": deploy},
                      ensure_ascii=False))
     for text, _, _ in msgs:
