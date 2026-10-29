@@ -140,28 +140,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01720404": {
-"no": "R26BK01720404",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2027학년도 대동세무고등학교 교육감 승인 인정도서 3종 위탁 개발 용역",
-"org": "서울특별시교육청 대동세무고등학교",
-"dem": "서울특별시교육청 대동세무고등학교",
-"posted": "2026-09-15 13:56:01",
-"close": "2026-09-29 16:00:00",
-"open": "2026-09-29 17:00:00",
-"method": "제한경쟁",
-"budget": "60000000",
-"kw": [
-"세무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01720404&bidPbancOrd=000",
-"found": "2026-09-16 09:56",
-"changed": "",
-"status": "open"
-},
 "R26BK01727912": {
 "no": "R26BK01727912",
 "ord": "000",
@@ -3404,6 +3382,30 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01798618&bidPbancOrd=000",
 "found": "2026-10-29 14:46",
+"changed": "",
+"status": "open"
+},
+"R26BK01799230": {
+"no": "R26BK01799230",
+"ord": "000",
+"kind": "재공고",
+"biz": "용역",
+"title": "세무·회계 자문 용역",
+"org": "한국생산기술연구원",
+"dem": "한국생산기술연구원",
+"posted": "2026-10-29 15:23:38",
+"close": "2026-11-09 10:00:00",
+"open": "2026-11-09 11:00:00",
+"method": "제한경쟁",
+"budget": "10000000",
+"kw": [
+"회계",
+"세무",
+"자문"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01799230&bidPbancOrd=000",
+"found": "2026-10-29 16:27",
 "changed": "",
 "status": "open"
 }
