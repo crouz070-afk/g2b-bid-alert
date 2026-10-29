@@ -3406,5 +3406,27 @@
 "found": "2026-10-29 14:07",
 "changed": "",
 "status": "open"
+},
+"R26BK01798618": {
+"no": "R26BK01798618",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "신용보증기금 부동산 가격자문 용역업체 선정",
+"org": "신용보증기금",
+"dem": "신용보증기금",
+"posted": "2026-10-29 14:18:13",
+"close": "",
+"open": "2026-12-15 14:00:00",
+"method": "일반경쟁",
+"budget": "271092500",
+"kw": [
+"자문"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01798618&bidPbancOrd=000",
+"found": "2026-10-29 14:46",
+"changed": "",
+"status": "open"
 }
 }
