@@ -208,28 +208,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01737367": {
-"no": "R26BK01737367",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "국립공주대학교 도자문화 실습동 교육·실습 기자재 이전 및 보관",
-"org": "국립공주대학교 예술대학",
-"dem": "국립공주대학교 예술대학",
-"posted": "2026-09-18 16:43:40",
-"close": "2026-09-29 14:00:00",
-"open": "2026-09-29 15:00:00",
-"method": "수의계약",
-"budget": "40810000",
-"kw": [
-"자문"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01737367&bidPbancOrd=000",
-"found": "2026-09-20 08:30",
-"changed": "",
-"status": "open"
-},
 "R26BK01737384": {
 "no": "R26BK01737384",
 "ord": "000",
@@ -3403,6 +3381,29 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01793111&bidPbancOrd=000",
 "found": "2026-10-28 18:27",
+"changed": "",
+"status": "open"
+},
+"R26BK01798804": {
+"no": "R26BK01798804",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "한국지질자원연구원 부가가치세 환급 용역",
+"org": "한국지질자원연구원",
+"dem": "한국지질자원연구원",
+"posted": "2026-10-29 13:58:46",
+"close": "2026-11-12 10:00:00",
+"open": "2026-11-12 11:00:00",
+"method": "일반경쟁",
+"budget": "492248000",
+"kw": [],
+"lic": [
+"세무법인/3724",
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01798804&bidPbancOrd=000",
+"found": "2026-10-29 14:07",
 "changed": "",
 "status": "open"
 }
