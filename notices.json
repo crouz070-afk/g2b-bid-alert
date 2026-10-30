@@ -624,28 +624,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01751229": {
-"no": "R26BK01751229",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026년도 양산지사 PSM 자체감사 및 공정위험성평가 용역",
-"org": "한국지역난방공사 양산지사",
-"dem": "한국지역난방공사 양산지사",
-"posted": "2026-09-30 15:03:34",
-"close": "2026-09-30 16:00:00",
-"open": "2026-09-30 17:00:00",
-"method": "수의계약",
-"budget": "21993400",
-"kw": [
-"감사"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01751229&bidPbancOrd=000",
-"found": "2026-09-30 18:11",
-"changed": "",
-"status": "open"
-},
 "R26BK01750130": {
 "no": "R26BK01750130",
 "ord": "000",
@@ -3337,6 +3315,77 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01800611&bidPbancOrd=000",
 "found": "2026-10-30 11:17",
+"changed": "",
+"status": "open"
+},
+"R26BK01800258": {
+"no": "R26BK01800258",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2026회계연도 재무결산 위탁용역",
+"org": "법무부",
+"dem": "법무부",
+"posted": "2026-10-30 16:04:55",
+"close": "2026-11-10 10:00:00",
+"open": "2026-11-10 11:00:00",
+"method": "제한경쟁",
+"budget": "50000000",
+"kw": [
+"회계",
+"재무"
+],
+"lic": [
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01800258&bidPbancOrd=000",
+"found": "2026-10-30 16:30",
+"changed": "",
+"status": "open"
+},
+"R26BK01800436": {
+"no": "R26BK01800436",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2026~2028회계연도 문경시 상수도사업 공기업특별회계 결산감사용역",
+"org": "경상북도 문경시 상하수도사업소",
+"dem": "경상북도 문경시 상하수도사업소",
+"posted": "2026-10-30 16:24:57",
+"close": "2026-11-12 11:00:00",
+"open": "2026-11-12 12:00:00",
+"method": "일반경쟁",
+"budget": "50000000",
+"kw": [
+"회계"
+],
+"lic": [
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01800436&bidPbancOrd=000",
+"found": "2026-10-30 16:30",
+"changed": "",
+"status": "open"
+},
+"R26BK01801851": {
+"no": "R26BK01801851",
+"ord": "000",
+"kind": "재공고",
+"biz": "용역",
+"title": "성남문화재단 그룹웨어 및 회계시스템 교체",
+"org": "재단법인 성남문화재단",
+"dem": "재단법인 성남문화재단",
+"posted": "2026-10-30 16:25:40",
+"close": "",
+"open": "2026-11-10 13:00:00",
+"method": "제한경쟁",
+"budget": "299293000",
+"kw": [
+"회계"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01801851&bidPbancOrd=000",
+"found": "2026-10-30 16:30",
 "changed": "",
 "status": "open"
 }
