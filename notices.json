@@ -694,30 +694,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01748746": {
-"no": "R26BK01748746",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "동남권 LNG벙커링 사업 자문 및 컨설팅 용역",
-"org": "울산항만공사",
-"dem": "울산항만공사",
-"posted": "2026-09-29 15:46:10",
-"close": "2026-09-30 14:00:00",
-"open": "2026-09-30 15:00:00",
-"method": "수의계약",
-"budget": "218900000",
-"kw": [
-"자문"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01748746&bidPbancOrd=000",
-"found": "2026-09-30 18:11",
-"changed": "",
-"status": "open"
-},
 "R26BK01748852": {
 "no": "R26BK01748852",
 "ord": "000",
