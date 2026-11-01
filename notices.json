@@ -24,29 +24,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01629182": {
-"no": "R26BK01629182",
-"ord": "001",
-"kind": "",
-"biz": "용역",
-"title": "(정정공고)인천국제공항 지방세 절세방안 발굴 및 환급 용역",
-"org": "인천국제공항공사",
-"dem": "인천국제공항공사",
-"posted": "2026-09-04 14:32:16",
-"close": "2026-10-01 16:00:00",
-"open": "2026-10-01 17:00:00",
-"method": "일반경쟁",
-"budget": "499400000",
-"kw": [],
-"lic": [
-"세무법인/3724",
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01629182&bidPbancOrd=001",
-"found": "2026-09-04 18:05",
-"changed": "",
-"status": "open"
-},
 "R26BK01722269": {
 "no": "R26BK01722269",
 "ord": "000",
@@ -162,28 +139,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01737384": {
-"no": "R26BK01737384",
-"ord": "000",
-"kind": "",
-"biz": "기타",
-"title": "[제안요청 재공고] 책무 및 자점감사시스템 점검자료 관리체계 구축 (긴급) ",
-"org": "(주)아이비케이시스템",
-"dem": "중소기업은행",
-"posted": "2026-09-18 16:38",
-"close": "",
-"open": "2026-10-01 18:00",
-"method": "공고서참조",
-"budget": "",
-"kw": [
-"감사"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01737384&bidPbancOrd=000&prcmBsneSeCd=09&pbancType=pbanc",
-"found": "2026-09-20 08:30",
-"changed": "",
-"status": "open"
-},
 "R26BK01734761": {
 "no": "R26BK01734761",
 "ord": "001",
@@ -203,75 +158,6 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01734761&bidPbancOrd=001",
 "found": "2026-09-20 08:30",
-"changed": "",
-"status": "open"
-},
-"R26BK01739904": {
-"no": "R26BK01739904",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "우체국예금 모집경비 지급규정 개선 연구",
-"org": "과학기술정보통신부 우정사업본부 우정사업조달센터",
-"dem": "과학기술정보통신부 우정사업본부 우정사업조달센터",
-"posted": "2026-09-21 17:49:57",
-"close": "2026-10-02 10:00:00",
-"open": "2026-10-02 11:00:00",
-"method": "일반경쟁",
-"budget": "100000000",
-"kw": [],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01739904&bidPbancOrd=000",
-"found": "2026-09-21 18:05",
-"changed": "",
-"status": "open"
-},
-"R26BK01739186": {
-"no": "R26BK01739186",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "한국상하수도협회 재무예산관리체계 고도화 용역",
-"org": "한국상하수도협회",
-"dem": "한국상하수도협회",
-"posted": "2026-09-21 14:36:24",
-"close": "2026-10-02 10:00:00",
-"open": "2026-10-02 11:00:00",
-"method": "제한경쟁",
-"budget": "44000000",
-"kw": [
-"재무"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01739186&bidPbancOrd=000",
-"found": "2026-09-21 18:05",
-"changed": "",
-"status": "open"
-},
-"R26BK01737902": {
-"no": "R26BK01737902",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026~2027년 기본·전략·자체연구사업 연구개발비 위탁 정산",
-"org": "한국식품연구원",
-"dem": "한국식품연구원",
-"posted": "2026-09-21 10:30:40",
-"close": "2026-10-02 10:00:00",
-"open": "2026-10-02 11:00:00",
-"method": "제한경쟁",
-"budget": "88000000",
-"kw": [],
-"lic": [
-"공인회계사사무소/3601",
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01737902&bidPbancOrd=000",
-"found": "2026-09-21 18:05",
 "changed": "",
 "status": "open"
 },
@@ -338,28 +224,6 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01738298&bidPbancOrd=000",
 "found": "2026-09-21 18:05",
-"changed": "",
-"status": "open"
-},
-"R26BK01744227": {
-"no": "R26BK01744227",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "시내·농어촌 버스 적정 운임·요율 산정 용역",
-"org": "경상남도",
-"dem": "경상남도",
-"posted": "2026-09-23 16:05:28",
-"close": "2026-10-01 10:00:00",
-"open": "2026-10-01 11:00:00",
-"method": "수의계약",
-"budget": "35000000",
-"kw": [],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01744227&bidPbancOrd=000",
-"found": "2026-09-24 10:25",
 "changed": "",
 "status": "open"
 },
@@ -647,28 +511,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01748852": {
-"no": "R26BK01748852",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "특허기반 정량평가모델 설계와 기술가치 평가 연계를 통한 바이오AX 분야 종합분석",
-"org": "한국산업기술기획평가원",
-"dem": "한국산업기술기획평가원",
-"posted": "2026-09-29 15:23:15",
-"close": "2026-10-01 11:00:00",
-"open": "2026-10-01 12:00:00",
-"method": "수의계약",
-"budget": "110230000",
-"kw": [
-"가치평가"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01748852&bidPbancOrd=000",
-"found": "2026-09-30 18:11",
-"changed": "",
-"status": "open"
-},
 "R26BK01748357": {
 "no": "R26BK01748357",
 "ord": "000",
@@ -845,28 +687,6 @@
 ],
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01753733&bidPbancOrd=000",
-"found": "2026-10-02 11:31",
-"changed": "",
-"status": "open"
-},
-"R26BK01753698": {
-"no": "R26BK01753698",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "진도군 동헌항 어촌신활력증진사업 시설공사(토목) 원가검토 용역",
-"org": "한국어촌어항공단",
-"dem": "한국어촌어항공단",
-"posted": "2026-10-01 16:55:47",
-"close": "2026-10-01 17:30:00",
-"open": "2026-10-01 18:30:00",
-"method": "수의계약",
-"budget": "3300000",
-"kw": [
-"원가"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01753698&bidPbancOrd=000",
 "found": "2026-10-02 11:31",
 "changed": "",
 "status": "open"
