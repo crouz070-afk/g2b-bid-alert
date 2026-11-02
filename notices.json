@@ -3093,13 +3093,13 @@
 },
 "R26BK01800258": {
 "no": "R26BK01800258",
-"ord": "000",
-"kind": "등록공고",
+"ord": "001",
+"kind": "취소공고",
 "biz": "용역",
 "title": "2026회계연도 재무결산 위탁용역",
 "org": "법무부",
 "dem": "법무부",
-"posted": "2026-10-30 16:04:55",
+"posted": "2026-11-02 17:49:59",
 "close": "2026-11-10 10:00:00",
 "open": "2026-11-10 11:00:00",
 "method": "제한경쟁",
@@ -3111,10 +3111,10 @@
 "lic": [
 "회계법인/1200"
 ],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01800258&bidPbancOrd=000",
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01800258&bidPbancOrd=001",
 "found": "2026-10-30 16:30",
 "changed": "",
-"status": "open"
+"status": "cancelled"
 },
 "R26BK01800436": {
 "no": "R26BK01800436",
@@ -3300,13 +3300,13 @@
 },
 "R26BK01804755": {
 "no": "R26BK01804755",
-"ord": "000",
-"kind": "등록공고",
+"ord": "001",
+"kind": "변경공고",
 "biz": "용역",
 "title": "가락우창아파트 재건축정비사업조합 외부회계감사 용역",
 "org": "서울특별시 송파구",
 "dem": "서울특별시 송파구",
-"posted": "2026-11-02 16:52:08",
+"posted": "2026-11-02 18:13:05",
 "close": "2026-11-06 15:00:00",
 "open": "2026-11-06 16:00:00",
 "method": "수의계약",
@@ -3315,8 +3315,33 @@
 "회계"
 ],
 "lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01804755&bidPbancOrd=000",
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01804755&bidPbancOrd=001",
 "found": "2026-11-02 17:45",
+"changed": "",
+"status": "open"
+},
+"R26BK01805078": {
+"no": "R26BK01805078",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2026회계연도 재무결산 위탁용역",
+"org": "법무부",
+"dem": "법무부",
+"posted": "2026-11-02 18:08:55",
+"close": "2026-11-13 10:00:00",
+"open": "2026-11-13 11:00:00",
+"method": "제한경쟁",
+"budget": "50000000",
+"kw": [
+"회계",
+"재무"
+],
+"lic": [
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01805078&bidPbancOrd=000",
+"found": "2026-11-02 18:40",
 "changed": "",
 "status": "open"
 }
