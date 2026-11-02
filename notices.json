@@ -2885,13 +2885,13 @@
 },
 "R26BK01794832": {
 "no": "R26BK01794832",
-"ord": "000",
-"kind": "등록공고",
+"ord": "001",
+"kind": "취소공고",
 "biz": "용역",
 "title": "부동산 가격자문 용역",
 "org": "중소벤처기업진흥공단",
 "dem": "중소벤처기업진흥공단",
-"posted": "2026-10-27 19:02:24",
+"posted": "2026-11-02 15:21:11",
 "close": "2026-11-10 10:00:00",
 "open": "2026-11-10 11:00:00",
 "method": "일반경쟁",
@@ -2900,10 +2900,10 @@
 "자문"
 ],
 "lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01794832&bidPbancOrd=000",
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01794832&bidPbancOrd=001",
 "found": "2026-10-28 18:27",
 "changed": "",
-"status": "open"
+"status": "cancelled"
 },
 "R26BK01794704": {
 "no": "R26BK01794704",
@@ -3229,6 +3229,28 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01802856&bidPbancOrd=000",
 "found": "2026-11-02 11:30",
+"changed": "",
+"status": "open"
+},
+"R26BK01803838": {
+"no": "R26BK01803838",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "예금보험공사 결산 및 세무업무 지원 용역",
+"org": "예금보험공사",
+"dem": "예금보험공사",
+"posted": "2026-11-02 14:25:52",
+"close": "2026-11-13 14:00:00",
+"open": "2026-11-18 14:00:00",
+"method": "일반경쟁",
+"budget": "180000000",
+"kw": [
+"세무"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01803838&bidPbancOrd=000",
+"found": "2026-11-02 15:22",
 "changed": "",
 "status": "open"
 }
