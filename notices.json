@@ -3344,5 +3344,27 @@
 "found": "2026-11-02 18:40",
 "changed": "",
 "status": "open"
+},
+"R26BK01805986": {
+"no": "R26BK01805986",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2026년도 감사 품질평가 및 만족도 조사",
+"org": "한국에너지공단",
+"dem": "한국에너지공단",
+"posted": "2026-11-03 10:29:10",
+"close": "2026-11-03 14:30:00",
+"open": "2026-11-03 15:30:00",
+"method": "수의계약",
+"budget": "35000000",
+"kw": [
+"감사"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01805986&bidPbancOrd=000",
+"found": "2026-11-03 10:36",
+"changed": "",
+"status": "open"
 }
 }
