@@ -3608,13 +3608,13 @@
 },
 "R26BK01810295": {
 "no": "R26BK01810295",
-"ord": "000",
-"kind": "등록공고",
+"ord": "001",
+"kind": "변경공고",
 "biz": "용역",
-"title": "﻿2026~2027 회계연도 대한민국재향군인회 외부회계감사 용역",
+"title": "대한민국재향군인회 회계자문용역(PA)",
 "org": "대한민국재향군인회",
 "dem": "대한민국재향군인회",
-"posted": "2026-11-04 16:32:29",
+"posted": "2026-11-04 17:37:14",
 "close": "2026-11-12 10:00:00",
 "open": "2026-11-12 11:00:00",
 "method": "일반경쟁",
@@ -3623,7 +3623,7 @@
 "회계"
 ],
 "lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01810295&bidPbancOrd=000",
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01810295&bidPbancOrd=001",
 "found": "2026-11-04 16:54",
 "changed": "",
 "status": "open"
@@ -3650,6 +3650,53 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01810117&bidPbancOrd=000",
 "found": "2026-11-04 16:54",
+"changed": "",
+"status": "open"
+},
+"R26BK01810436": {
+"no": "R26BK01810436",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2026 회계연도 전남개발공사 회계감사용역",
+"org": "전남개발공사",
+"dem": "전남개발공사",
+"posted": "2026-11-04 16:59:24",
+"close": "",
+"open": "2026-11-27 11:00:00",
+"method": "일반경쟁",
+"budget": "35400000",
+"kw": [
+"회계"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01810436&bidPbancOrd=000",
+"found": "2026-11-04 17:43",
+"changed": "",
+"status": "open"
+},
+"R26BK01806643": {
+"no": "R26BK01806643",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2027년 재무결산 지원 및 회계처리 모니터링",
+"org": "산림청",
+"dem": "산림청",
+"posted": "2026-11-04 17:20:28",
+"close": "2026-11-17 11:00:00",
+"open": "2026-11-17 12:00:00",
+"method": "제한경쟁",
+"budget": "40000000",
+"kw": [
+"회계",
+"재무"
+],
+"lic": [
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01806643&bidPbancOrd=000",
+"found": "2026-11-04 17:43",
 "changed": "",
 "status": "open"
 }
