@@ -161,28 +161,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01738260": {
-"no": "R26BK01738260",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026년 기본사업 및 AI국가대표양성(InnoCORE) Track 0 연구비 정산 용역",
-"org": "대구경북과학기술원",
-"dem": "대구경북과학기술원",
-"posted": "2026-09-21 10:28:08",
-"close": "",
-"open": "2026-10-06 13:00:00",
-"method": "제한경쟁",
-"budget": "60000000",
-"kw": [],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01738260&bidPbancOrd=000",
-"found": "2026-09-21 18:05",
-"changed": "",
-"status": "open"
-},
 "R26BK01738298": {
 "no": "R26BK01738298",
 "ord": "000",
@@ -3741,6 +3719,55 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01811643&bidPbancOrd=000",
 "found": "2026-11-05 11:38",
+"changed": "",
+"status": "open"
+},
+"R26BK01794854": {
+"no": "R26BK01794854",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "경찰청 2026 회계연도 재무결산 위탁용역",
+"org": "경찰청",
+"dem": "경찰청",
+"posted": "2026-11-05 12:35:03",
+"close": "2026-11-16 10:00:00",
+"open": "2026-11-16 11:00:00",
+"method": "제한경쟁",
+"budget": "50000000",
+"kw": [
+"회계",
+"재무"
+],
+"lic": [
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01794854&bidPbancOrd=000",
+"found": "2026-11-05 13:24",
+"changed": "",
+"status": "open"
+},
+"R26BK01810328": {
+"no": "R26BK01810328",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "한국지능정보사회진흥원 원가계산 위탁 용역",
+"org": "조달청",
+"dem": "한국지능정보사회진흥원",
+"posted": "2026-11-05 13:06:10",
+"close": "2026-11-26 10:00:00",
+"open": "2026-11-26 11:00:00",
+"method": "일반경쟁",
+"budget": "1539334020",
+"kw": [
+"원가"
+],
+"lic": [
+"원가계산용역기관(기재부기준)/3612"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01810328&bidPbancOrd=000",
+"found": "2026-11-05 13:24",
 "changed": "",
 "status": "open"
 }
