@@ -3770,5 +3770,27 @@
 "found": "2026-11-05 13:24",
 "changed": "",
 "status": "open"
+},
+"R26BK01808531": {
+"no": "R26BK01808531",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "예천군 경영진단 및 장기발전계획 수립 용역",
+"org": "경상북도 예천군",
+"dem": "경상북도 예천군",
+"posted": "2026-11-05 14:28:39",
+"close": "2026-11-26 16:00:00",
+"open": "2026-11-26 17:00:00",
+"method": "일반경쟁",
+"budget": "260000000",
+"kw": [
+"경영진단"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01808531&bidPbancOrd=000",
+"found": "2026-11-05 15:22",
+"changed": "",
+"status": "open"
 }
 }
