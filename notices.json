@@ -1,29 +1,4 @@
 {
-"R26BK01710508": {
-"no": "R26BK01710508",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "(재공고) 2026~2028 회계연도 결산감사",
-"org": "국방과학연구소",
-"dem": "국방과학연구소",
-"posted": "2026-09-02 15:44:30",
-"close": "2026-10-07 10:00:00",
-"open": "2026-10-14 11:00:00",
-"method": "제한경쟁",
-"budget": "88000000",
-"kw": [
-"회계",
-"감사"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01710508&bidPbancOrd=000",
-"found": "2026-09-03 12:33",
-"changed": "",
-"status": "open"
-},
 "R26BK01722269": {
 "no": "R26BK01722269",
 "ord": "000",
@@ -201,51 +176,6 @@
 ],
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01744183&bidPbancOrd=000",
-"found": "2026-09-24 10:25",
-"changed": "",
-"status": "open"
-},
-"R26BK01743803": {
-"no": "R26BK01743803",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "세무조사 적법절차 및 주요 불복사례 분석 위탁교육",
-"org": "국세청",
-"dem": "국세청",
-"posted": "2026-09-23 14:02:56",
-"close": "2026-10-07 10:00:00",
-"open": "2026-10-07 11:00:00",
-"method": "제한경쟁",
-"budget": "31952400",
-"kw": [
-"세무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01743803&bidPbancOrd=000",
-"found": "2026-09-24 10:25",
-"changed": "",
-"status": "open"
-},
-"R26BK01743677": {
-"no": "R26BK01743677",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "재무제표 분석과 회계부정 적발 위탁교육",
-"org": "국세청",
-"dem": "국세청",
-"posted": "2026-09-23 13:33:29",
-"close": "2026-10-07 10:00:00",
-"open": "2026-10-07 11:00:00",
-"method": "제한경쟁",
-"budget": "31952400",
-"kw": [
-"회계",
-"재무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01743677&bidPbancOrd=000",
 "found": "2026-09-24 10:25",
 "changed": "",
 "status": "open"
@@ -872,28 +802,6 @@
 ],
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01757334&bidPbancOrd=000",
-"found": "2026-10-07 10:39",
-"changed": "",
-"status": "open"
-},
-"R26BK01756554": {
-"no": "R26BK01756554",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026년 인사제도 개선 자문용역 발주 추진",
-"org": "한전KDN(주)",
-"dem": "한전KDN(주)",
-"posted": "2026-10-06 13:22:31",
-"close": "2026-10-07 10:30:00",
-"open": "2026-10-07 10:30:00",
-"method": "수의계약",
-"budget": "54664707",
-"kw": [
-"자문"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01756554&bidPbancOrd=000",
 "found": "2026-10-07 10:39",
 "changed": "",
 "status": "open"
@@ -3837,6 +3745,28 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01808487&bidPbancOrd=000",
 "found": "2026-11-06 09:10",
+"changed": "",
+"status": "open"
+},
+"R26BK01805331": {
+"no": "R26BK01805331",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2027~2028년 국세청 감사정보시스템 유지관리 사업",
+"org": "조달청",
+"dem": "국세청",
+"posted": "2026-11-06 09:42:13",
+"close": "2026-12-01 10:00:00",
+"open": "2026-12-01 11:00:00",
+"method": "제한경쟁",
+"budget": "329066360",
+"kw": [
+"감사"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01805331&bidPbancOrd=000",
+"found": "2026-11-06 10:46",
 "changed": "",
 "status": "open"
 }
