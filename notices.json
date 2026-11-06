@@ -3815,5 +3815,28 @@
 "found": "2026-11-06 14:23",
 "changed": "",
 "status": "open"
+},
+"R26BK01815165": {
+"no": "R26BK01815165",
+"ord": "000",
+"kind": "등록공고",
+"biz": "기타",
+"title": "경남개발공사 외부회계감사인 선임을 위한 모집공고",
+"org": "경남개발공사",
+"dem": "경남개발공사",
+"posted": "2026-11-06 14:54",
+"close": "",
+"open": "2026-11-17 17:00",
+"method": "공고서참조",
+"budget": "",
+"kw": [
+"회계",
+"감사"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01815165&bidPbancOrd=000&prcmBsneSeCd=09&pbancType=pbanc",
+"found": "2026-11-06 15:21",
+"changed": "",
+"status": "open"
 }
 }
