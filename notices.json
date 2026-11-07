@@ -349,30 +349,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01750130": {
-"no": "R26BK01750130",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026년도 처분시설 경상정비 원가조사 용역",
-"org": "한국원자력환경공단",
-"dem": "한국원자력환경공단",
-"posted": "2026-09-30 10:17:21",
-"close": "2026-10-08 12:00:00",
-"open": "2026-10-08 13:00:00",
-"method": "제한경쟁",
-"budget": "148665000",
-"kw": [
-"원가"
-],
-"lic": [
-"원가계산용역기관(기재부기준)/3612"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01750130&bidPbancOrd=000",
-"found": "2026-09-30 18:11",
-"changed": "",
-"status": "open"
-},
 "R26BK01749986": {
 "no": "R26BK01749986",
 "ord": "000",
@@ -670,28 +646,6 @@
 "회계법인/1200"
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01756763&bidPbancOrd=001",
-"found": "2026-10-07 10:39",
-"changed": "",
-"status": "open"
-},
-"R26BK01757332": {
-"no": "R26BK01757332",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "도막형바닥재 다수공급자계약 원가계산 용역 계약",
-"org": "조달청",
-"dem": "조달청",
-"posted": "2026-10-06 17:39:22",
-"close": "2026-10-08 12:00:00",
-"open": "2026-10-08 13:00:00",
-"method": "수의계약",
-"budget": "7000000",
-"kw": [
-"원가"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01757332&bidPbancOrd=000",
 "found": "2026-10-07 10:39",
 "changed": "",
 "status": "open"
