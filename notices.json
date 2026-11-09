@@ -3840,5 +3840,27 @@
 "found": "2026-11-09 13:28",
 "changed": "",
 "status": "open"
+},
+"R26BK01818581": {
+"no": "R26BK01818581",
+"ord": "000",
+"kind": "등록공고",
+"biz": "기타",
+"title": "초광역 성장엔진 인재육성사업 회계정산 용역",
+"org": "단국대학교 천안캠퍼스 산학협력단",
+"dem": "단국대학교 천안캠퍼스 산학협력단",
+"posted": "2026-11-09 16:16",
+"close": "",
+"open": "2026-11-20 11:00",
+"method": "공고서참조",
+"budget": "",
+"kw": [
+"회계"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01818581&bidPbancOrd=000&prcmBsneSeCd=09&pbancType=pbanc",
+"found": "2026-11-09 16:54",
+"changed": "",
+"status": "open"
 }
 }
