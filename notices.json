@@ -255,52 +255,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01749986": {
-"no": "R26BK01749986",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "소상공인자영업자새출발기금(주) 지원대상 채권 인수 평가,자문 용역",
-"org": "한국자산관리공사",
-"dem": "한국자산관리공사",
-"posted": "2026-09-30 09:19:22",
-"close": "2026-10-12 16:00:00",
-"open": "2026-10-12 17:00:00",
-"method": "제한경쟁",
-"budget": "6440870000",
-"kw": [
-"자문"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01749986&bidPbancOrd=000",
-"found": "2026-09-30 18:11",
-"changed": "",
-"status": "open"
-},
-"R26BK01748357": {
-"no": "R26BK01748357",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "산은(KDB) 브랜드 사용료율 산출 자문용역",
-"org": "한국산업은행",
-"dem": "한국산업은행",
-"posted": "2026-09-29 14:10:58",
-"close": "",
-"open": "2026-10-12 16:00:00",
-"method": "제한경쟁",
-"budget": "90000000",
-"kw": [
-"자문"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01748357&bidPbancOrd=000",
-"found": "2026-09-30 18:11",
-"changed": "",
-"status": "open"
-},
 "R26BK01747646": {
 "no": "R26BK01747646",
 "ord": "000",
@@ -3817,6 +3771,30 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01823981&bidPbancOrd=000",
 "found": "2026-11-11 15:58",
+"changed": "",
+"status": "open"
+},
+"R26BK01824290": {
+"no": "R26BK01824290",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "문화체육본부 시립체육시설 2027년 광고사용료 원가조사 용역",
+"org": "서울시설공단",
+"dem": "서울시설공단",
+"posted": "2026-11-11 16:24:42",
+"close": "2026-11-17 10:00:00",
+"open": "2026-11-17 11:00:00",
+"method": "수의계약",
+"budget": "9900000",
+"kw": [
+"원가"
+],
+"lic": [
+"원가계산용역기관(행안부 기준)/2609"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01824290&bidPbancOrd=000",
+"found": "2026-11-11 17:12",
 "changed": "",
 "status": "open"
 }
