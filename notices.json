@@ -3565,13 +3565,13 @@
 },
 "R26BK01814941": {
 "no": "R26BK01814941",
-"ord": "000",
-"kind": "등록공고",
+"ord": "001",
+"kind": "취소공고",
 "biz": "용역",
 "title": "문화체육본부 시립체육시설 2027년 광고사용료 원가조사 용역",
 "org": "서울시설공단",
 "dem": "서울시설공단",
-"posted": "2026-11-06 14:01:14",
+"posted": "2026-11-11 15:31:44",
 "close": "2026-11-12 10:00:00",
 "open": "2026-11-12 11:00:00",
 "method": "수의계약",
@@ -3582,10 +3582,10 @@
 "lic": [
 "원가계산용역기관(행안부 기준)/2609"
 ],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01814941&bidPbancOrd=000",
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01814941&bidPbancOrd=001",
 "found": "2026-11-06 14:23",
 "changed": "",
-"status": "open"
+"status": "cancelled"
 },
 "R26BK01815165": {
 "no": "R26BK01815165",
@@ -3773,6 +3773,50 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01818065&bidPbancOrd=000",
 "found": "2026-11-10 08:22",
+"changed": "",
+"status": "open"
+},
+"R26BK01815148": {
+"no": "R26BK01815148",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2026년 충남창조경제혁신센터 사업비 외부회계감사 용역 계약",
+"org": "충남창조경제혁신센터",
+"dem": "충남창조경제혁신센터",
+"posted": "2026-11-11 15:09:02",
+"close": "2026-11-16 15:00:00",
+"open": "2026-11-16 16:00:00",
+"method": "수의계약",
+"budget": "7700000",
+"kw": [
+"회계"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01815148&bidPbancOrd=000",
+"found": "2026-11-11 15:58",
+"changed": "",
+"status": "open"
+},
+"R26BK01823981": {
+"no": "R26BK01823981",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "베트남 하이퐁시 통합하수처리시설 개발사업 재무적 타당성 분석 부문",
+"org": "주식회사 유신",
+"dem": "주식회사 유신",
+"posted": "2026-11-11 15:10:24",
+"close": "2026-11-23 14:00:00",
+"open": "2026-11-23 15:00:00",
+"method": "일반경쟁",
+"budget": "77000000",
+"kw": [
+"재무"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01823981&bidPbancOrd=000",
+"found": "2026-11-11 15:58",
 "changed": "",
 "status": "open"
 }
