@@ -182,28 +182,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01747693": {
-"no": "R26BK01747693",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026년도 소상공인 생활문화 혁신지원 사업 주관기관 회계정산 용역",
-"org": "(사)창조경제혁신센터협의회",
-"dem": "(사)창조경제혁신센터협의회",
-"posted": "2026-09-29 10:13:20",
-"close": "2026-10-13 17:00:00",
-"open": "2026-10-13 18:00:00",
-"method": "일반경쟁",
-"budget": "30000000",
-"kw": [
-"회계"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01747693&bidPbancOrd=000",
-"found": "2026-09-30 18:11",
-"changed": "",
-"status": "open"
-},
 "R26BK01754513": {
 "no": "R26BK01754513",
 "ord": "000",
@@ -3607,6 +3585,52 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01824572&bidPbancOrd=000",
 "found": "2026-11-12 16:48",
+"changed": "",
+"status": "open"
+},
+"R26BK01827722": {
+"no": "R26BK01827722",
+"ord": "000",
+"kind": "재공고",
+"biz": "용역",
+"title": "공기업하수도사업특별회계 재산관리시스템 유지관리 사업",
+"org": "서울특별시",
+"dem": "서울특별시",
+"posted": "2026-11-12 17:37:43",
+"close": "2026-11-24 16:00:00",
+"open": "2026-11-24 17:00:00",
+"method": "제한경쟁",
+"budget": "44641000",
+"kw": [
+"회계"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01827722&bidPbancOrd=000",
+"found": "2026-11-12 17:43",
+"changed": "",
+"status": "open"
+},
+"R26BK01827648": {
+"no": "R26BK01827648",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2027년 한국건설기술연구원 원가계산용역 단가계약",
+"org": "한국건설기술연구원",
+"dem": "한국건설기술연구원",
+"posted": "2026-11-12 17:40:06",
+"close": "2026-11-23 10:00:00",
+"open": "2026-11-23 11:00:00",
+"method": "제한경쟁",
+"budget": "231620000",
+"kw": [
+"원가"
+],
+"lic": [
+"원가계산용역기관(기재부기준)/3612"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01827648&bidPbancOrd=000",
+"found": "2026-11-12 17:43",
 "changed": "",
 "status": "open"
 }
