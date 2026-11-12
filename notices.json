@@ -182,101 +182,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01746932": {
-"no": "R26BK01746932",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026회계연도 ICT기금 결산 회계감사",
-"org": "한국방송통신전파진흥원",
-"dem": "한국방송통신전파진흥원",
-"posted": "2026-09-28 17:40:58",
-"close": "2026-10-13 10:00:00",
-"open": "2026-10-13 11:00:00",
-"method": "제한경쟁",
-"budget": "20000000",
-"kw": [
-"회계",
-"감사"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01746932&bidPbancOrd=000",
-"found": "2026-09-28 18:24",
-"changed": "",
-"status": "open"
-},
-"R26BK01746527": {
-"no": "R26BK01746527",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026회계연도 ICT기금 재무결산 지원",
-"org": "한국방송통신전파진흥원",
-"dem": "한국방송통신전파진흥원",
-"posted": "2026-09-28 17:24:33",
-"close": "2026-10-13 10:00:00",
-"open": "2026-10-13 11:00:00",
-"method": "제한경쟁",
-"budget": "23000000",
-"kw": [
-"회계",
-"재무"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01746527&bidPbancOrd=000",
-"found": "2026-09-28 18:24",
-"changed": "",
-"status": "open"
-},
-"R26BK01751431": {
-"no": "R26BK01751431",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "해양수산 AI 응용제품 신속 상용화 지원사업 위탁정산",
-"org": "해양수산과학기술진흥원",
-"dem": "해양수산과학기술진흥원",
-"posted": "2026-09-30 16:19:54",
-"close": "2026-10-13 10:00:00",
-"open": "2026-10-13 11:00:00",
-"method": "제한경쟁",
-"budget": "0",
-"kw": [],
-"lic": [
-"공인회계사사무소/3601",
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01751431&bidPbancOrd=000",
-"found": "2026-09-30 18:11",
-"changed": "",
-"status": "open"
-},
-"R26BK01747646": {
-"no": "R26BK01747646",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026년 기본사업 위탁정산 용역",
-"org": "한국화학연구원부설국가독성과학연구소",
-"dem": "한국화학연구원부설국가독성과학연구소",
-"posted": "2026-09-29 10:13:44",
-"close": "2026-10-13 10:00:00",
-"open": "2026-10-13 11:00:00",
-"method": "제한경쟁",
-"budget": "33000000",
-"kw": [],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01747646&bidPbancOrd=000",
-"found": "2026-09-30 18:11",
-"changed": "",
-"status": "open"
-},
 "R26BK01747693": {
 "no": "R26BK01747693",
 "ord": "000",
@@ -318,54 +223,6 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01752509&bidPbancOrd=000",
 "found": "2026-10-01 13:50",
-"changed": "",
-"status": "open"
-},
-"R26BK01750377": {
-"no": "R26BK01750377",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026년 중앙자활자금 지원사업 회계 정산 검증",
-"org": "조달청 서울지방조달청",
-"dem": "재단법인 한국자활복지개발원",
-"posted": "2026-10-01 13:40:17",
-"close": "2026-10-13 10:00:00",
-"open": "2026-10-13 11:00:00",
-"method": "제한경쟁",
-"budget": "199108912",
-"kw": [
-"회계"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01750377&bidPbancOrd=000",
-"found": "2026-10-01 13:50",
-"changed": "",
-"status": "open"
-},
-"R26BK01754515": {
-"no": "R26BK01754515",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "한국상하수도협회 재무예산관리체계 고도화 용역",
-"org": "한국상하수도협회",
-"dem": "한국상하수도협회",
-"posted": "2026-10-02 10:34:12",
-"close": "2026-10-13 10:00:00",
-"open": "2026-10-13 11:00:00",
-"method": "제한경쟁",
-"budget": "44000000",
-"kw": [
-"재무"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01754515&bidPbancOrd=000",
-"found": "2026-10-02 11:31",
 "changed": "",
 "status": "open"
 },
@@ -488,28 +345,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01758337": {
-"no": "R26BK01758337",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "시내·농어촌 버스 적정 운임·요율 산정 용역",
-"org": "경상남도",
-"dem": "경상남도",
-"posted": "2026-10-06 16:58:14",
-"close": "2026-10-13 10:00:00",
-"open": "2026-10-13 11:00:00",
-"method": "수의계약",
-"budget": "35000000",
-"kw": [],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01758337&bidPbancOrd=000",
-"found": "2026-10-07 10:39",
-"changed": "",
-"status": "open"
-},
 "R26BK01758265": {
 "no": "R26BK01758265",
 "ord": "000",
@@ -572,28 +407,6 @@
 ],
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01757334&bidPbancOrd=000",
-"found": "2026-10-07 10:39",
-"changed": "",
-"status": "open"
-},
-"R26BK01754985": {
-"no": "R26BK01754985",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "양산하수처리장 악취저감사업 실시설계용역",
-"org": "경상남도 양산시 상하수도사업소",
-"dem": "경상남도 양산시 상하수도사업소",
-"posted": "2026-10-06 11:59:08",
-"close": "2026-10-13 10:00:00",
-"open": "2026-10-13 11:00:00",
-"method": "수의계약",
-"budget": "63890000",
-"kw": [
-"감사"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01754985&bidPbancOrd=000",
 "found": "2026-10-07 10:39",
 "changed": "",
 "status": "open"
