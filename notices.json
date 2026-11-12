@@ -668,28 +668,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01762670": {
-"no": "R26BK01762670",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026년 정기세무조사 세무대리인 선임",
-"org": "한전KDN(주)",
-"dem": "한전KDN(주)",
-"posted": "2026-10-12 09:14:14",
-"close": "2026-10-13 18:00:00",
-"open": "2026-10-14 10:00:00",
-"method": "수의계약",
-"budget": "103711080",
-"kw": [
-"세무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01762670&bidPbancOrd=000",
-"found": "2026-10-12 13:07",
-"changed": "",
-"status": "open"
-},
 "R26BK01764196": {
 "no": "R26BK01764196",
 "ord": "000",
@@ -3631,6 +3609,28 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01827648&bidPbancOrd=000",
 "found": "2026-11-12 17:43",
+"changed": "",
+"status": "open"
+},
+"R26BK01827965": {
+"no": "R26BK01827965",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "안동시 비지정유산 보존ㆍ활용체계 개선방안 및 가치평가 연구용역",
+"org": "경상북도 안동시",
+"dem": "경상북도 안동시",
+"posted": "2026-11-12 18:28:36",
+"close": "2026-11-18 12:00:00",
+"open": "2026-11-18 14:00:00",
+"method": "수의계약",
+"budget": "49860000",
+"kw": [
+"가치평가"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01827965&bidPbancOrd=000",
+"found": "2026-11-12 18:37",
 "changed": "",
 "status": "open"
 }
