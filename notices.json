@@ -275,30 +275,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01758739": {
-"no": "R26BK01758739",
-"ord": "001",
-"kind": "",
-"biz": "용역",
-"title": "남원시 공공체육시설 민간위탁 원가산정을 위한 연구 용역",
-"org": "전북특별자치도 남원시",
-"dem": "전북특별자치도 남원시",
-"posted": "2026-10-07 10:02:43",
-"close": "2026-10-13 12:00:00",
-"open": "2026-10-13 13:00:00",
-"method": "수의계약",
-"budget": "29656000",
-"kw": [
-"원가"
-],
-"lic": [
-"원가계산용역기관(행안부 기준)/2609"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01758739&bidPbancOrd=001",
-"found": "2026-10-07 10:39",
-"changed": "",
-"status": "open"
-},
 "R26BK01756763": {
 "no": "R26BK01756763",
 "ord": "001",
@@ -452,30 +428,6 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01749861&bidPbancOrd=000",
 "found": "2026-10-07 10:39",
-"changed": "",
-"status": "open"
-},
-"R26BK01762609": {
-"no": "R26BK01762609",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026회계연도 회계감사 및 세무조정 용역",
-"org": "대구공공시설관리공단",
-"dem": "대구공공시설관리공단",
-"posted": "2026-10-08 14:09:31",
-"close": "2026-10-13 12:00:00",
-"open": "2026-10-13 13:00:00",
-"method": "수의계약",
-"budget": "35000000",
-"kw": [
-"회계",
-"감사",
-"세무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01762609&bidPbancOrd=000",
-"found": "2026-10-08 14:29",
 "changed": "",
 "status": "open"
 },
@@ -924,30 +876,6 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01761796&bidPbancOrd=000",
 "found": "2026-10-12 21:21",
-"changed": "",
-"status": "open"
-},
-"R26BK01766959": {
-"no": "R26BK01766959",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026회계연도 회계감사 및 세무조정 용역",
-"org": "대구공공시설관리공단",
-"dem": "대구공공시설관리공단",
-"posted": "2026-10-13 09:51:24",
-"close": "2026-10-13 12:00:00",
-"open": "2026-10-13 13:00:00",
-"method": "수의계약",
-"budget": "35000000",
-"kw": [
-"회계",
-"감사",
-"세무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01766959&bidPbancOrd=000",
-"found": "2026-10-13 10:56",
 "changed": "",
 "status": "open"
 },
