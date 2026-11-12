@@ -3497,13 +3497,13 @@
 },
 "R26BK01814614": {
 "no": "R26BK01814614",
-"ord": "000",
-"kind": "재공고",
+"ord": "001",
+"kind": "취소공고",
 "biz": "용역",
 "title": "(회계연도 개시 전)2027년 거제시 배수펌프장 등 관리대행 용역",
 "org": "경상남도 거제시",
 "dem": "경상남도 거제시",
-"posted": "2026-11-06 11:07:49",
+"posted": "2026-11-12 09:05:25",
 "close": "2026-11-12 10:00:00",
 "open": "2026-11-12 11:00:00",
 "method": "제한경쟁",
@@ -3512,10 +3512,10 @@
 "회계"
 ],
 "lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01814614&bidPbancOrd=000",
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01814614&bidPbancOrd=001",
 "found": "2026-11-06 11:37",
 "changed": "",
-"status": "open"
+"status": "cancelled"
 },
 "R26BK01814941": {
 "no": "R26BK01814941",
@@ -3795,6 +3795,51 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01824290&bidPbancOrd=000",
 "found": "2026-11-11 17:12",
+"changed": "",
+"status": "open"
+},
+"R26BK01825397": {
+"no": "R26BK01825397",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "통상임금 소급분 정산에 따른 연말정산·4대보험 재정산 및 수정신고 용역",
+"org": "전남대학교병원",
+"dem": "전남대학교병원",
+"posted": "2026-11-12 09:13:19",
+"close": "",
+"open": "2026-12-23 18:00:00",
+"method": "일반경쟁",
+"budget": "255600000",
+"kw": [],
+"lic": [
+"세무법인/3724",
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01825397&bidPbancOrd=000",
+"found": "2026-11-12 09:31",
+"changed": "",
+"status": "open"
+},
+"R26BK01825483": {
+"no": "R26BK01825483",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "27년도 기업 재무데이터 구매",
+"org": "한국산업기술기획평가원",
+"dem": "한국산업기술기획평가원",
+"posted": "2026-11-12 09:27:57",
+"close": "2026-11-23 11:00:00",
+"open": "2026-11-23 14:00:00",
+"method": "제한경쟁",
+"budget": "161000000",
+"kw": [
+"재무"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01825483&bidPbancOrd=000",
+"found": "2026-11-12 09:31",
 "changed": "",
 "status": "open"
 }
