@@ -204,28 +204,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01752509": {
-"no": "R26BK01752509",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2027학년도 대동세무고등학교 교육감 승인 인정도서 3종 위탁 개발 용역",
-"org": "서울특별시교육청 대동세무고등학교",
-"dem": "서울특별시교육청 대동세무고등학교",
-"posted": "2026-10-01 13:47:03",
-"close": "2026-10-13 16:00:00",
-"open": "2026-10-13 17:00:00",
-"method": "제한경쟁",
-"budget": "60000000",
-"kw": [
-"세무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01752509&bidPbancOrd=000",
-"found": "2026-10-01 13:50",
-"changed": "",
-"status": "open"
-},
 "R26BK01754513": {
 "no": "R26BK01754513",
 "ord": "000",
@@ -3605,6 +3583,30 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01825581&bidPbancOrd=000",
 "found": "2026-11-12 14:29",
+"changed": "",
+"status": "open"
+},
+"R26BK01824572": {
+"no": "R26BK01824572",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2026년 귀속 연말정산 위탁용역",
+"org": "인천공항운영서비스(주)",
+"dem": "인천공항운영서비스(주)",
+"posted": "2026-11-12 15:37:18",
+"close": "2026-11-20 14:00:00",
+"open": "2026-11-20 15:00:00",
+"method": "제한경쟁",
+"budget": "45605120",
+"kw": [],
+"lic": [
+"공인회계사사무소/3601",
+"세무법인/3724",
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01824572&bidPbancOrd=000",
+"found": "2026-11-12 16:48",
 "changed": "",
 "status": "open"
 }
