@@ -3611,5 +3611,27 @@
 "found": "2026-11-12 18:37",
 "changed": "",
 "status": "open"
+},
+"R26BK01827578": {
+"no": "R26BK01827578",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "[PQ제출안내] 부전천 비점오염 저감사업 건설사업관리용역",
+"org": "부산광역시 부산진구",
+"dem": "부산광역시 부산진구",
+"posted": "2026-11-13 10:54:43",
+"close": "",
+"open": "2026-11-24 18:00:00",
+"method": "일반경쟁",
+"budget": "2600000000",
+"kw": [
+"감사"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01827578&bidPbancOrd=000",
+"found": "2026-11-13 11:29",
+"changed": "",
+"status": "open"
 }
 }
