@@ -3512,5 +3512,50 @@
 "found": "2026-11-16 11:59",
 "changed": "",
 "status": "open"
+},
+"R26BK01832013": {
+"no": "R26BK01832013",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2027년 예산재무회계시스템(ERP) 유지관리 용역",
+"org": "영화진흥위원회",
+"dem": "영화진흥위원회",
+"posted": "2026-11-16 13:55:33",
+"close": "2026-11-27 14:00:00",
+"open": "2026-11-27 15:00:00",
+"method": "제한경쟁",
+"budget": "59972966",
+"kw": [
+"회계",
+"재무"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01832013&bidPbancOrd=000",
+"found": "2026-11-16 14:27",
+"changed": "",
+"status": "open"
+},
+"R26BK01832606": {
+"no": "R26BK01832606",
+"ord": "000",
+"kind": "재공고",
+"biz": "용역",
+"title": "항만공사 통합 로드맵 수립 및 법 제도 정비 방안 연구",
+"org": "해양수산부",
+"dem": "해양수산부",
+"posted": "2026-11-16 14:13:29",
+"close": "2026-11-27 10:00:00",
+"open": "2026-11-27 11:00:00",
+"method": "일반경쟁",
+"budget": "400000000",
+"kw": [],
+"lic": [
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01832606&bidPbancOrd=000",
+"found": "2026-11-16 14:27",
+"changed": "",
+"status": "open"
 }
 }
