@@ -665,28 +665,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01767660": {
-"no": "R26BK01767660",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "충청감영 기획특별전 충청감사 공주에 납시다 전시연출 용역",
-"org": "(재)충청남도역사문화연구원",
-"dem": "(재)충청남도역사문화연구원",
-"posted": "2026-10-13 13:41:39",
-"close": "2026-10-19 10:00:00",
-"open": "2026-10-19 11:00:00",
-"method": "수의계약",
-"budget": "40000000",
-"kw": [
-"감사"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01767660&bidPbancOrd=000",
-"found": "2026-10-14 13:15",
-"changed": "",
-"status": "open"
-},
 "R26BK01770803": {
 "no": "R26BK01770803",
 "ord": "000",
@@ -3766,6 +3744,28 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01837090&bidPbancOrd=000",
 "found": "2026-11-17 19:39",
+"changed": "",
+"status": "open"
+},
+"R26BK01837897": {
+"no": "R26BK01837897",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "주택연금 법률 및 세무 자문서비스",
+"org": "조달청 부산지방조달청",
+"dem": "한국주택금융공사",
+"posted": "2026-11-18 10:35:14",
+"close": "2026-12-09 10:00:00",
+"open": "2026-12-09 11:00:00",
+"method": "일반경쟁",
+"budget": "344909200",
+"kw": [
+"세무"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01837897&bidPbancOrd=000",
+"found": "2026-11-18 10:58",
 "changed": "",
 "status": "open"
 }
