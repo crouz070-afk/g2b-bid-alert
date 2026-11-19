@@ -227,29 +227,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01761395": {
-"no": "R26BK01761395",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026~2028 회계연도 과학기술인공제회 세무조정 용역",
-"org": "과학기술인공제회",
-"dem": "과학기술인공제회",
-"posted": "2026-10-07 18:27:02",
-"close": "",
-"open": "2026-10-20 11:00:00",
-"method": "일반경쟁",
-"budget": "165000000",
-"kw": [
-"회계",
-"세무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01761395&bidPbancOrd=000",
-"found": "2026-10-08 14:29",
-"changed": "",
-"status": "open"
-},
 "R26BK01760488": {
 "no": "R26BK01760488",
 "ord": "000",
@@ -3815,6 +3792,29 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01836550&bidPbancOrd=000",
 "found": "2026-11-19 10:59",
+"changed": "",
+"status": "open"
+},
+"R26BK01841048": {
+"no": "R26BK01841048",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "농업과 기업 간 연계강화사업 외부 회계감사",
+"org": "충남창조경제혁신센터",
+"dem": "충남창조경제혁신센터",
+"posted": "2026-11-19 11:08:33",
+"close": "2026-11-24 12:00:00",
+"open": "2026-11-24 13:00:00",
+"method": "수의계약",
+"budget": "1650000",
+"kw": [
+"회계",
+"감사"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01841048&bidPbancOrd=000",
+"found": "2026-11-19 11:47",
 "changed": "",
 "status": "open"
 }
