@@ -274,31 +274,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01763334": {
-"no": "R26BK01763334",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "4대 과학기술원 창업리그「GRAVITY 2026」창업활동비 회계정산 용역",
-"org": "광주과학기술원",
-"dem": "광주과학기술원",
-"posted": "2026-10-08 16:31:36",
-"close": "",
-"open": "2026-10-20 14:00:00",
-"method": "제한경쟁",
-"budget": "16000000",
-"kw": [
-"회계"
-],
-"lic": [
-"공인회계사사무소/3601",
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01763334&bidPbancOrd=000",
-"found": "2026-10-08 19:45",
-"changed": "",
-"status": "open"
-},
 "R26BK01762978": {
 "no": "R26BK01762978",
 "ord": "000",
@@ -973,29 +948,6 @@
 ],
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01781018&bidPbancOrd=000",
-"found": "2026-10-21 09:39",
-"changed": "",
-"status": "open"
-},
-"R26BK01779572": {
-"no": "R26BK01779572",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026회계연도 재무결산 중간점검 검토용역",
-"org": "지식재산처",
-"dem": "지식재산처",
-"posted": "2026-10-20 10:33:31",
-"close": "2026-10-20 14:00:00",
-"open": "2026-10-20 15:00:00",
-"method": "수의계약",
-"budget": "20000000",
-"kw": [
-"회계",
-"재무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01779572&bidPbancOrd=000",
 "found": "2026-10-21 09:39",
 "changed": "",
 "status": "open"
@@ -3793,6 +3745,28 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01841048&bidPbancOrd=000",
 "found": "2026-11-19 11:47",
+"changed": "",
+"status": "open"
+},
+"R26BK01842071": {
+"no": "R26BK01842071",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "삼척시 노실마을 어촌개발사업 시설공사(건축) 원가검토 용역",
+"org": "한국어촌어항공단",
+"dem": "한국어촌어항공단",
+"posted": "2026-11-19 14:05:57",
+"close": "2026-11-19 15:00:00",
+"open": "2026-11-19 16:00:00",
+"method": "수의계약",
+"budget": "4400000",
+"kw": [
+"원가"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01842071&bidPbancOrd=000",
+"found": "2026-11-19 14:39",
 "changed": "",
 "status": "open"
 }
