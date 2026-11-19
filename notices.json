@@ -114,28 +114,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01744183": {
-"no": "R26BK01744183",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "JPDC 물류운영사업 전략수립, 모델구축 및 원가산정 용역",
-"org": "제주특별자치도개발공사",
-"dem": "제주특별자치도개발공사",
-"posted": "2026-09-23 16:00:03",
-"close": "2026-10-20 16:00:00",
-"open": "2026-10-20 17:00:00",
-"method": "제한경쟁",
-"budget": "249754000",
-"kw": [
-"원가"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01744183&bidPbancOrd=000",
-"found": "2026-09-24 10:25",
-"changed": "",
-"status": "open"
-},
 "R26BK01757334": {
 "no": "R26BK01757334",
 "ord": "000",
@@ -3657,13 +3635,13 @@
 },
 "R26BK01839677": {
 "no": "R26BK01839677",
-"ord": "000",
-"kind": "등록공고",
+"ord": "001",
+"kind": "취소공고",
 "biz": "용역",
 "title": "2027, 2028년 한국산업기술시험원 원가조사 용역",
 "org": "조달청 경남지방조달청",
 "dem": "한국산업기술시험원",
-"posted": "2026-11-18 16:30:31",
+"posted": "2026-11-19 16:27:08",
 "close": "2026-12-02 10:00:00",
 "open": "2026-12-02 11:00:00",
 "method": "제한경쟁",
@@ -3674,10 +3652,10 @@
 "lic": [
 "원가계산용역기관(기재부기준)/3612"
 ],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01839677&bidPbancOrd=000",
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01839677&bidPbancOrd=001",
 "found": "2026-11-18 16:53",
 "changed": "",
-"status": "open"
+"status": "cancelled"
 },
 "R26BK01836550": {
 "no": "R26BK01836550",
@@ -3818,6 +3796,28 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01842127&bidPbancOrd=000",
 "found": "2026-11-19 15:36",
+"changed": "",
+"status": "open"
+},
+"R26BK01842889": {
+"no": "R26BK01842889",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "e-감사시스템 유지보수 및 기능개선",
+"org": "한국가스안전공사",
+"dem": "한국가스안전공사",
+"posted": "2026-11-19 16:39:47",
+"close": "2026-12-01 10:00:00",
+"open": "2026-12-01 11:00:00",
+"method": "제한경쟁",
+"budget": "53460000",
+"kw": [
+"감사"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01842889&bidPbancOrd=000",
+"found": "2026-11-19 16:54",
 "changed": "",
 "status": "open"
 }
