@@ -136,28 +136,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01756778": {
-"no": "R26BK01756778",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2027~2029 한국환경산업기술원 급여업무 대행",
-"org": "한국환경산업기술원",
-"dem": "한국환경산업기술원",
-"posted": "2026-10-06 17:38:05",
-"close": "2026-10-20 10:00:00",
-"open": "2026-10-20 11:00:00",
-"method": "제한경쟁",
-"budget": "198000000",
-"kw": [],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01756778&bidPbancOrd=000",
-"found": "2026-10-07 10:39",
-"changed": "",
-"status": "open"
-},
 "R26BK01757334": {
 "no": "R26BK01757334",
 "ord": "000",
@@ -527,28 +505,6 @@
 ],
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01768857&bidPbancOrd=000",
-"found": "2026-10-14 13:15",
-"changed": "",
-"status": "open"
-},
-"R26BK01769297": {
-"no": "R26BK01769297",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "양산하수처리장 악취저감사업 실시설계용역",
-"org": "경상남도 양산시 상하수도사업소",
-"dem": "경상남도 양산시 상하수도사업소",
-"posted": "2026-10-14 11:01:00",
-"close": "2026-10-20 10:00:00",
-"open": "2026-10-20 11:00:00",
-"method": "수의계약",
-"budget": "63890000",
-"kw": [
-"감사"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01769297&bidPbancOrd=000",
 "found": "2026-10-14 13:15",
 "changed": "",
 "status": "open"
@@ -3835,6 +3791,30 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01839677&bidPbancOrd=000",
 "found": "2026-11-18 16:53",
+"changed": "",
+"status": "open"
+},
+"R26BK01836550": {
+"no": "R26BK01836550",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2026년도 귀속 연말정산 위탁 용역",
+"org": "한국석유공사",
+"dem": "한국석유공사",
+"posted": "2026-11-19 10:34:25",
+"close": "2026-11-27 10:00:00",
+"open": "2026-11-27 11:00:00",
+"method": "제한경쟁",
+"budget": "34210000",
+"kw": [],
+"lic": [
+"공인회계사사무소/3601",
+"세무법인/3724",
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01836550&bidPbancOrd=000",
+"found": "2026-11-19 10:59",
 "changed": "",
 "status": "open"
 }
