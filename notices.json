@@ -3936,5 +3936,27 @@
 "found": "2026-11-20 15:28",
 "changed": "",
 "status": "open"
+},
+"R26BK01845825": {
+"no": "R26BK01845825",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "한국전기공사협회 부동산 매입자문 용역",
+"org": "한국전기공사협회",
+"dem": "한국전기공사협회",
+"posted": "2026-11-20 16:25:57",
+"close": "",
+"open": "2026-12-01 16:00:00",
+"method": "제한경쟁",
+"budget": "0",
+"kw": [
+"자문"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01845825&bidPbancOrd=000",
+"found": "2026-11-20 16:47",
+"changed": "",
+"status": "open"
 }
 }
