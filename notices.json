@@ -1027,29 +1027,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01783114": {
-"no": "R26BK01783114",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "회계자문 및 결산지원(PA) 용역",
-"org": "코레일네트웍스주식회사",
-"dem": "코레일네트웍스주식회사",
-"posted": "2026-10-21 11:05:28",
-"close": "2026-10-21 14:00:00",
-"open": "2026-10-21 15:00:00",
-"method": "수의계약",
-"budget": "21424802",
-"kw": [
-"회계",
-"자문"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01783114&bidPbancOrd=000",
-"found": "2026-10-21 18:22",
-"changed": "",
-"status": "open"
-},
 "R26BK01784949": {
 "no": "R26BK01784949",
 "ord": "000",
@@ -3909,6 +3886,29 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01843608&bidPbancOrd=000",
 "found": "2026-11-19 20:31",
+"changed": "",
+"status": "open"
+},
+"R26BK01843355": {
+"no": "R26BK01843355",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "국가과학기술연구회 추진과제 사업비 위탁정산",
+"org": "조달청 대전지방조달청",
+"dem": "국가과학기술연구회",
+"posted": "2026-11-20 14:28:19",
+"close": "2026-12-01 10:00:00",
+"open": "2026-12-01 11:00:00",
+"method": "제한경쟁",
+"budget": "126260000",
+"kw": [],
+"lic": [
+"공인회계사사무소/3601",
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01843355&bidPbancOrd=000",
+"found": "2026-11-20 14:28",
 "changed": "",
 "status": "open"
 }
