@@ -233,52 +233,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01764196": {
-"no": "R26BK01764196",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "한국뇌연구원 2026회계연도 회계교육(컨설팅) 및 결산 지원 용역",
-"org": "한국뇌연구원",
-"dem": "한국뇌연구원",
-"posted": "2026-10-12 09:01:06",
-"close": "2026-10-23 10:00:00",
-"open": "2026-10-23 11:00:00",
-"method": "제한경쟁",
-"budget": "55000000",
-"kw": [
-"회계"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01764196&bidPbancOrd=000",
-"found": "2026-10-12 13:07",
-"changed": "",
-"status": "open"
-},
-"R26BK01766627": {
-"no": "R26BK01766627",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "세무조사 부실과세 방지와 납세자의 권리 위탁교육",
-"org": "국세청",
-"dem": "국세청",
-"posted": "2026-10-12 19:22:17",
-"close": "2026-10-23 10:00:00",
-"open": "2026-10-23 11:00:00",
-"method": "제한경쟁",
-"budget": "31969350",
-"kw": [
-"세무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01766627&bidPbancOrd=000",
-"found": "2026-10-12 21:21",
-"changed": "",
-"status": "open"
-},
 "R26BK01765311": {
 "no": "R26BK01765311",
 "ord": "000",
@@ -300,31 +254,6 @@
 "회계법인/1200"
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01765311&bidPbancOrd=000",
-"found": "2026-10-12 21:21",
-"changed": "",
-"status": "open"
-},
-"R26BK01749912": {
-"no": "R26BK01749912",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026년 소공인 스마트제조지원사업 회계정산용역",
-"org": "(사)한국능률협회",
-"dem": "(사)한국능률협회",
-"posted": "2026-10-12 14:45:01",
-"close": "2026-10-23 10:00:00",
-"open": "2026-10-23 11:00:00",
-"method": "일반경쟁",
-"budget": "104500000",
-"kw": [
-"회계"
-],
-"lic": [
-"공인회계사사무소/3601",
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01749912&bidPbancOrd=000",
 "found": "2026-10-12 21:21",
 "changed": "",
 "status": "open"
