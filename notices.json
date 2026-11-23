@@ -3730,5 +3730,49 @@
 "found": "2026-11-23 09:37",
 "changed": "",
 "status": "open"
+},
+"R26BK01847685": {
+"no": "R26BK01847685",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "국민건강보험공단 자금운용 투자자문사 선정",
+"org": "국민건강보험공단",
+"dem": "국민건강보험공단",
+"posted": "2026-11-23 10:37:59",
+"close": "2026-12-01 11:00:00",
+"open": "2026-12-01 13:00:00",
+"method": "제한경쟁",
+"budget": "192000001",
+"kw": [
+"자문"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01847685&bidPbancOrd=000",
+"found": "2026-11-23 10:56",
+"changed": "",
+"status": "open"
+},
+"R26BK01847784": {
+"no": "R26BK01847784",
+"ord": "000",
+"kind": "재공고",
+"biz": "용역",
+"title": "예금보험공사 결산 및 세무업무 지원 용역",
+"org": "예금보험공사",
+"dem": "예금보험공사",
+"posted": "2026-11-23 10:51:35",
+"close": "2026-12-04 14:00:00",
+"open": "2026-12-09 14:00:00",
+"method": "일반경쟁",
+"budget": "180000000",
+"kw": [
+"세무"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01847784&bidPbancOrd=000",
+"found": "2026-11-23 10:56",
+"changed": "",
+"status": "open"
 }
 }
