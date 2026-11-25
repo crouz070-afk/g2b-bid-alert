@@ -3952,5 +3952,27 @@
 "found": "2026-11-25 14:44",
 "changed": "",
 "status": "open"
+},
+"R26BK01856057": {
+"no": "R26BK01856057",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "예산회계시스템 재구축",
+"org": "수협중앙회",
+"dem": "수협중앙회",
+"posted": "2026-11-25 15:24:34",
+"close": "",
+"open": "2026-12-21 17:00:00",
+"method": "제한경쟁",
+"budget": "14573000000",
+"kw": [
+"회계"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01856057&bidPbancOrd=000",
+"found": "2026-11-25 15:43",
+"changed": "",
+"status": "open"
 }
 }
