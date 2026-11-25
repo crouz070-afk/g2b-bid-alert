@@ -254,28 +254,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01769242": {
-"no": "R26BK01769242",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2025년 결산 국내기업 재무정보 구매",
-"org": "관세청",
-"dem": "관세청",
-"posted": "2026-10-13 20:19:29",
-"close": "2026-10-26 10:00:00",
-"open": "2026-10-26 11:00:00",
-"method": "제한경쟁",
-"budget": "99000000",
-"kw": [
-"재무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01769242&bidPbancOrd=000",
-"found": "2026-10-14 13:15",
-"changed": "",
-"status": "open"
-},
 "R26BK01770803": {
 "no": "R26BK01770803",
 "ord": "000",
@@ -367,30 +345,6 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01772250&bidPbancOrd=000",
 "found": "2026-10-15 10:37",
-"changed": "",
-"status": "open"
-},
-"R26BK01774109": {
-"no": "R26BK01774109",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "세무·회계 자문 용역",
-"org": "한국생산기술연구원",
-"dem": "한국생산기술연구원",
-"posted": "2026-10-15 17:31:49",
-"close": "2026-10-26 10:00:00",
-"open": "2026-10-26 11:00:00",
-"method": "제한경쟁",
-"budget": "10000000",
-"kw": [
-"회계",
-"세무",
-"자문"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01774109&bidPbancOrd=000",
-"found": "2026-10-15 19:14",
 "changed": "",
 "status": "open"
 },
@@ -629,28 +583,6 @@
 "회계법인/1200"
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01781671&bidPbancOrd=000",
-"found": "2026-10-21 09:39",
-"changed": "",
-"status": "open"
-},
-"R26BK01781345": {
-"no": "R26BK01781345",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "일산로(후곡학원가 일원) 재포장공사 폐기물처리용역",
-"org": "경기도 고양시",
-"dem": "경기도 고양시",
-"posted": "2026-10-20 14:53:15",
-"close": "2026-10-26 10:00:00",
-"open": "2026-10-26 11:00:00",
-"method": "수의계약",
-"budget": "30280000",
-"kw": [
-"원가"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01781345&bidPbancOrd=000",
 "found": "2026-10-21 09:39",
 "changed": "",
 "status": "open"
@@ -3951,6 +3883,73 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01853635&bidPbancOrd=000",
 "found": "2026-11-24 18:53",
+"changed": "",
+"status": "open"
+},
+"R26BK01854593": {
+"no": "R26BK01854593",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2026년도 매립가스 시설 PSM 자체감사 기술용역",
+"org": "한국지역난방공사 서울중앙지사",
+"dem": "한국지역난방공사 서울중앙지사",
+"posted": "2026-11-25 10:10:21",
+"close": "2026-11-25 12:00:00",
+"open": "2026-11-25 13:00:00",
+"method": "수의계약",
+"budget": "9290600",
+"kw": [
+"감사"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01854593&bidPbancOrd=000",
+"found": "2026-11-25 11:03",
+"changed": "",
+"status": "open"
+},
+"R26BK01854707": {
+"no": "R26BK01854707",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "현지화(법령·회계·인사·지식재산) 전문가 자문 용역",
+"org": "재단법인 전주정보문화산업진흥원",
+"dem": "재단법인 전주정보문화산업진흥원",
+"posted": "2026-11-25 10:45:51",
+"close": "2026-12-07 10:00:00",
+"open": "2026-12-10 10:00:00",
+"method": "일반경쟁",
+"budget": "40000000",
+"kw": [
+"회계",
+"자문"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01854707&bidPbancOrd=000",
+"found": "2026-11-25 11:03",
+"changed": "",
+"status": "open"
+},
+"R26BK01850066": {
+"no": "R26BK01850066",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "덕교항 어촌뉴딜사업 정산보고서 회계적정성 검증 용역",
+"org": "한국농어촌공사 경기지역본부 김포지사",
+"dem": "한국농어촌공사 경기지역본부 김포지사",
+"posted": "2026-11-25 10:46:49",
+"close": "2026-11-25 12:00:00",
+"open": "2026-11-25 13:00:00",
+"method": "수의계약",
+"budget": "12100000",
+"kw": [
+"회계"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01850066&bidPbancOrd=000",
+"found": "2026-11-25 11:03",
 "changed": "",
 "status": "open"
 }
