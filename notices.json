@@ -46,30 +46,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01730817": {
-"no": "R26BK01730817",
-"ord": "001",
-"kind": "",
-"biz": "용역",
-"title": "2026년 지역별 무공해차 전환 브랜드사업 위탁정산 회계법인 선정",
-"org": "한국자동차환경협회",
-"dem": "한국자동차환경협회",
-"posted": "2026-09-15 16:36:53",
-"close": "2026-10-26 16:00:00",
-"open": "2026-10-26 17:00:00",
-"method": "일반경쟁",
-"budget": "72996000",
-"kw": [
-"회계"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01730817&bidPbancOrd=001",
-"found": "2026-09-16 09:56",
-"changed": "",
-"status": "open"
-},
 "R26BK01732487": {
 "no": "R26BK01732487",
 "ord": "000",
@@ -3955,13 +3931,13 @@
 },
 "R26BK01856057": {
 "no": "R26BK01856057",
-"ord": "000",
-"kind": "등록공고",
+"ord": "001",
+"kind": "취소공고",
 "biz": "용역",
 "title": "예산회계시스템 재구축",
 "org": "수협중앙회",
 "dem": "수협중앙회",
-"posted": "2026-11-25 15:24:34",
+"posted": "2026-11-25 16:28:45",
 "close": "",
 "open": "2026-12-21 17:00:00",
 "method": "제한경쟁",
@@ -3970,8 +3946,55 @@
 "회계"
 ],
 "lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01856057&bidPbancOrd=000",
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01856057&bidPbancOrd=001",
 "found": "2026-11-25 15:43",
+"changed": "",
+"status": "cancelled"
+},
+"R26BK01856430": {
+"no": "R26BK01856430",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "2026 회계연도 연말정산 용역",
+"org": "국방과학연구소",
+"dem": "국방과학연구소",
+"posted": "2026-11-25 16:30:39",
+"close": "2026-12-09 10:00:00",
+"open": "2026-12-14 11:00:00",
+"method": "제한경쟁",
+"budget": "38200000",
+"kw": [
+"회계"
+],
+"lic": [
+"세무법인/3724",
+"회계법인/1200"
+],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01856430&bidPbancOrd=000",
+"found": "2026-11-25 17:10",
+"changed": "",
+"status": "open"
+},
+"R26BK01856489": {
+"no": "R26BK01856489",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "예산회계시스템 재구축(재공고)",
+"org": "수협중앙회",
+"dem": "수협중앙회",
+"posted": "2026-11-25 16:31:27",
+"close": "",
+"open": "2026-12-21 17:00:00",
+"method": "제한경쟁",
+"budget": "14573000000",
+"kw": [
+"회계"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01856489&bidPbancOrd=000",
+"found": "2026-11-25 17:10",
 "changed": "",
 "status": "open"
 }
