@@ -24,50 +24,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01731510": {
-"no": "R26BK01731510",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "AI기반 감사업무시스템 재구축 용역",
-"org": "한국지역난방공사",
-"dem": "한국지역난방공사",
-"posted": "2026-09-15 19:31:42",
-"close": "2026-10-27 14:00:00",
-"open": "2026-11-03 14:00:00",
-"method": "제한경쟁",
-"budget": "1114630000",
-"kw": [
-"감사"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01731510&bidPbancOrd=000",
-"found": "2026-09-16 09:56",
-"changed": "",
-"status": "open"
-},
-"R26BK01732487": {
-"no": "R26BK01732487",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "AI기반 감사업무시스템 재구축 용역",
-"org": "한국지역난방공사",
-"dem": "한국지역난방공사",
-"posted": "2026-09-16 13:27:03",
-"close": "2026-10-27 14:00:00",
-"open": "2026-11-03 14:00:00",
-"method": "제한경쟁",
-"budget": "1114630000",
-"kw": [
-"감사"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01732487&bidPbancOrd=000",
-"found": "2026-09-16 18:05",
-"changed": "",
-"status": "open"
-},
 "R26BK01757334": {
 "no": "R26BK01757334",
 "ord": "000",
@@ -3878,6 +3834,50 @@
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01857875&bidPbancOrd=000",
 "found": "2026-11-26 11:52",
+"changed": "",
+"status": "open"
+},
+"R26BK01858863": {
+"no": "R26BK01858863",
+"ord": "000",
+"kind": "재공고",
+"biz": "용역",
+"title": "2027년 세무종합시스템 운영 및 유지관리",
+"org": "서울특별시",
+"dem": "서울특별시",
+"posted": "2026-11-26 13:56:09",
+"close": "2026-12-08 16:00:00",
+"open": "2026-12-08 17:00:00",
+"method": "제한경쟁",
+"budget": "2530629000",
+"kw": [
+"세무"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01858863&bidPbancOrd=000",
+"found": "2026-11-26 14:42",
+"changed": "",
+"status": "open"
+},
+"R26BK01858914": {
+"no": "R26BK01858914",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "우즈베키스탄 바이오매스 열병합발전사업 추가검증 및 사업제안서 작성 자문용역",
+"org": "한국지역난방공사",
+"dem": "한국지역난방공사",
+"posted": "2026-11-26 14:15:45",
+"close": "2026-12-16 10:00:00",
+"open": "2026-12-23 11:00:00",
+"method": "제한경쟁",
+"budget": "219670000",
+"kw": [
+"자문"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01858914&bidPbancOrd=000",
+"found": "2026-11-26 14:42",
 "changed": "",
 "status": "open"
 }
