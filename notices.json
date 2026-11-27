@@ -540,28 +540,6 @@
 "changed": "",
 "status": "open"
 },
-"R26BK01786303": {
-"no": "R26BK01786303",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026년 대전본원 전문장비 유지관리비 산정 연구용역",
-"org": "행정안전부 국가정보자원관리원",
-"dem": "행정안전부 국가정보자원관리원",
-"posted": "2026-10-22 15:39:28",
-"close": "2026-10-28 10:00:00",
-"open": "2026-10-28 11:00:00",
-"method": "수의계약",
-"budget": "5500000",
-"kw": [],
-"lic": [
-"원가계산용역기관(기재부기준)/3612"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01786303&bidPbancOrd=000",
-"found": "2026-10-22 18:11",
-"changed": "",
-"status": "open"
-},
 "R26BK01785712": {
 "no": "R26BK01785712",
 "ord": "000",
@@ -580,28 +558,6 @@
 "회계법인/1200"
 ],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01785712&bidPbancOrd=000",
-"found": "2026-10-22 18:11",
-"changed": "",
-"status": "open"
-},
-"R26BK01785188": {
-"no": "R26BK01785188",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "2026 ODA 인도네시아 외부검증(회계정산) 용역",
-"org": "충남창조경제혁신센터",
-"dem": "충남창조경제혁신센터",
-"posted": "2026-10-22 09:56:35",
-"close": "2026-10-28 11:00:00",
-"open": "2026-10-28 12:00:00",
-"method": "수의계약",
-"budget": "2200000",
-"kw": [
-"회계"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01785188&bidPbancOrd=000",
 "found": "2026-10-22 18:11",
 "changed": "",
 "status": "open"
@@ -3900,6 +3856,50 @@
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01859501&bidPbancOrd=000",
 "found": "2026-11-26 17:04",
+"changed": "",
+"status": "open"
+},
+"R26BK01861012": {
+"no": "R26BK01861012",
+"ord": "000",
+"kind": "등록공고",
+"biz": "용역",
+"title": "임상학회 자문 관리 전산시스템 기능 고도화 및 유지관리 용역",
+"org": "재단법인범부처전주기의료기기연구개발사업단",
+"dem": "재단법인범부처전주기의료기기연구개발사업단",
+"posted": "2026-11-27 10:08:39",
+"close": "2026-12-08 12:00:00",
+"open": "2026-12-08 13:00:00",
+"method": "제한경쟁",
+"budget": "200000000",
+"kw": [
+"자문"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01861012&bidPbancOrd=000",
+"found": "2026-11-27 11:08",
+"changed": "",
+"status": "open"
+},
+"R26BK01861341": {
+"no": "R26BK01861341",
+"ord": "001",
+"kind": "변경공고",
+"biz": "용역",
+"title": "2026회계연도 수도사업특별회계 회계감사 용역",
+"org": "서울특별시 서울아리수본부",
+"dem": "서울특별시 서울아리수본부",
+"posted": "2026-11-27 11:03:17",
+"close": "2026-11-30 12:00:00",
+"open": "2026-11-30 13:00:00",
+"method": "수의계약",
+"budget": "31000000",
+"kw": [
+"회계"
+],
+"lic": [],
+"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01861341&bidPbancOrd=001",
+"found": "2026-11-27 11:08",
 "changed": "",
 "status": "open"
 }
