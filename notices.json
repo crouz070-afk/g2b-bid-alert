@@ -1,29 +1,4 @@
 {
-"R26BK01722269": {
-"no": "R26BK01722269",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "IBK금융그룹 2027~2029 회계연도 외부감사인 선임",
-"org": "중소기업은행",
-"dem": "중소기업은행",
-"posted": "2026-09-10 10:11:38",
-"close": "",
-"open": "2026-10-28 16:00:00",
-"method": "제한경쟁",
-"budget": "12636000000",
-"kw": [
-"회계",
-"감사"
-],
-"lic": [
-"회계법인/1200"
-],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01722269&bidPbancOrd=000",
-"found": "2026-09-10 14:33",
-"changed": "",
-"status": "open"
-},
 "R26BK01757334": {
 "no": "R26BK01757334",
 "ord": "000",
@@ -42,28 +17,6 @@
 ],
 "lic": [],
 "url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01757334&bidPbancOrd=000",
-"found": "2026-10-07 10:39",
-"changed": "",
-"status": "open"
-},
-"R26BK01756528": {
-"no": "R26BK01756528",
-"ord": "000",
-"kind": "",
-"biz": "용역",
-"title": "한국자산관리공사 세무대리 용역",
-"org": "한국자산관리공사",
-"dem": "한국자산관리공사",
-"posted": "2026-10-06 10:21:10",
-"close": "2026-10-28 17:00:00",
-"open": "2026-10-28 18:00:00",
-"method": "일반경쟁",
-"budget": "92646000",
-"kw": [
-"세무"
-],
-"lic": [],
-"url": "https://www.g2b.go.kr/link/PNPE027_01/single/?bidPbancNo=R26BK01756528&bidPbancOrd=000",
 "found": "2026-10-07 10:39",
 "changed": "",
 "status": "open"
